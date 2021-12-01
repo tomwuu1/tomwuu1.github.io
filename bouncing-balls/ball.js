@@ -55,7 +55,7 @@ Ball.prototype.draw = function() {
   ctx.fill();
 };
 
-// 定义彩球更新函数
+// 定义球更新函数
 
 Ball.prototype.update = function() {
   if((this.x + this.size) >= width) {
@@ -87,7 +87,7 @@ Ball.prototype.collisionDetect = function() {
       const dy = this.y - balls[j].y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < this.size + balls[j].size) {
+      if (distance < this.size + balls[j].size && balls[j].exists === true) {
         balls[j].color = this.color = randomColor();
       }
     }
