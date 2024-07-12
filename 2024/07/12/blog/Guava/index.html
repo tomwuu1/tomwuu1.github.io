@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Objectsequal在判断是否相等的时候，不需要对对象进行null判断 1System.out.println(Objects.equal(null, &quot;world&quot;));  hashCode用于计算一组对象的hashcode 1Objects.hashCode(name, age);  MoreObjectstoStringHelper帮助实现toString方法 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/07/12/blog/Guava/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Objectsequal在判断是否相等的时候，不需要对对象进行null判断 1System.out.println(Objects.equal(null, &quot;world&quot;));  hashCode用于计算一组对象的hashcode 1Objects.hashCode(name, age);  MoreObjectstoStringHelper帮助实现toString方法 123">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-12T05:02:39.949Z">
+<meta property="article:modified_time" content="2024-07-11T07:02:40.916Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-blog/Guava" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/Guava/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T05:02:39.949Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h1><h2 id="equal"><a href="#equal" class="headerlink" title="equal"></a>equal</h2><p>在判断是否相等的时候，不需要对对象进行null判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Objects.equal(<span class="literal">null</span>, <span class="string">&quot;world&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h2><p>用于计算一组对象的hashcode</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.hashCode(name, age);</span><br></pre></td></tr></table></figure>
+
+<h1 id="MoreObjects"><a href="#MoreObjects" class="headerlink" title="MoreObjects"></a>MoreObjects</h1><h2 id="toStringHelper"><a href="#toStringHelper" class="headerlink" title="toStringHelper"></a>toStringHelper</h2><p>帮助实现toString方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Main</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MoreObjects.toStringHelper(<span class="built_in">this</span>)</span><br><span class="line">                .add(<span class="string">&quot;name&quot;</span>, name)</span><br><span class="line">                .add(<span class="string">&quot;age&quot;</span>, age)</span><br><span class="line">                .toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Main</span> <span class="variable">main</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>(<span class="string">&quot;Hello&quot;</span>, <span class="number">10</span>);</span><br><span class="line">        System.out.println(main.toString());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Main&#123;name=Hello, age=10&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="ComparisonChain"><a href="#ComparisonChain" class="headerlink" title="ComparisonChain"></a>ComparisonChain</h1><p>用于使用链式调用实现compareTo方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Person&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> wealth;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Person other)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ComparisonChain.start()</span><br><span class="line">                .compare(<span class="built_in">this</span>.age, other.age)</span><br><span class="line">                .compare(<span class="built_in">this</span>.name, other.name)</span><br><span class="line">                .compare(<span class="built_in">this</span>.wealth, other.wealth)</span><br><span class="line">                .result();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Preconditions"><a href="#Preconditions" class="headerlink" title="Preconditions"></a>Preconditions</h1><p>用于进行参数校验。如果没有通过，会抛出异常，并且打印错误信息</p>
+<h2 id="checkArgument"><a href="#checkArgument" class="headerlink" title="checkArgument"></a>checkArgument</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Preconditions.checkArgument(age &gt; <span class="number">0</span>, <span class="string">&quot;Age must be positive&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="checkNotNull"><a href="#checkNotNull" class="headerlink" title="checkNotNull"></a>checkNotNull</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Preconditions.checkNotNull(message, <span class="string">&quot;Message cannot be null&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Ordering"><a href="#Ordering" class="headerlink" title="Ordering"></a>Ordering</h1><p>在阅读链式调用的比较器的时候，从前往后读</p>
+<h2 id="natural"><a href="#natural" class="headerlink" title="natural"></a>natural</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">5</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line">Ordering&lt;Integer&gt; naturalOrdering = Ordering.natural();</span><br><span class="line">List&lt;Integer&gt; sortedNumbers = naturalOrdering.sortedCopy(numbers);</span><br><span class="line"><span class="comment">// [1, 3, 4, 5, 9]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h2><p>返回与原始Ordering相反顺序的Ordering</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ordering&lt;Integer&gt; naturalOrdering = Ordering.natural();</span><br><span class="line">Ordering&lt;Integer&gt; reverseOrdering = naturalOrdering.reverse();</span><br><span class="line">List&lt;Integer&gt; sortedNumbers = reverseOrdering.sortedCopy(numbers);</span><br></pre></td></tr></table></figure>
+
+<h2 id="nullsFirts-nullsLast"><a href="#nullsFirts-nullsLast" class="headerlink" title="nullsFirts,nullsLast"></a>nullsFirts,nullsLast</h2><p>用于选择null值的顺序</p>
+<h2 id="onResultOf-Function"><a href="#onResultOf-Function" class="headerlink" title="onResultOf(Function)"></a>onResultOf(Function)</h2><p>用于提取一个对象需要进行排序的属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Ordering&lt;Person&gt; byAge = Ordering.natural().onResultOf(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;Person, Comparable&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Comparable <span class="title function_">apply</span><span class="params">(Person person)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> person.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="compound"><a href="#compound" class="headerlink" title="compound"></a>compound</h2><p>用于创建多个排序条件，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ordering&lt;Person&gt; byName = Ordering.natural();</span><br><span class="line"></span><br><span class="line">Ordering&lt;Person&gt; byNameThenAge = byName.compound(<span class="keyword">new</span> <span class="title class_">Ordering</span>&lt;Person&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person p1, Person p2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.compare(p1.age, p2.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Throwables"><a href="#Throwables" class="headerlink" title="Throwables"></a>Throwables</h1><h2 id="getRootCause"><a href="#getRootCause" class="headerlink" title="getRootCause"></a>getRootCause</h2><p>对于嵌套的异常结构，递归地返回最里面的异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Throwable</span> <span class="variable">rootCause</span> <span class="operator">=</span> Throwables.getRootCause(e);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/Guava/" data-id="clyi8ezuj0001a4qkhs4iaznn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/07/12/blog/1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/12/blog/Guava/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/blog/1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
