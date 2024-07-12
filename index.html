@@ -69,6 +69,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-blog/logback" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/logback/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T11:03:56.789Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/logback/" data-id="clyilpt7g0003ykqkdbysarig" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-blog/错误处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T10:37:00.327Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>错误码</p>
+<ol>
+<li>异常</li>
+</ol>
+<p><code>Exception.printStackTrace</code>无论如何不能被调用</p>
+<h2 id="何时抛出异常"><a href="#何时抛出异常" class="headerlink" title="何时抛出异常"></a>何时抛出异常</h2><p>for循环时，是抛出异常中断for循环还是吞掉异常继续循环，视情况而定</p>
+<p>出现了异常情况，但是不影响正常逻辑，不应该抛出异常</p>
+<h2 id="何时捕获异常"><a href="#何时捕获异常" class="headerlink" title="何时捕获异常"></a>何时捕获异常</h2><ul>
+<li>能妥善处理异常时，</li>
+<li>需要进行回滚时</li>
+<li>需要关注异常类型，或需要监控时</li>
+</ul>
+<h2 id="如何处理异常"><a href="#如何处理异常" class="headerlink" title="如何处理异常"></a>如何处理异常</h2><p> catch：处理异常，打印日志</p>
+<p>finally：关闭资源等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" data-id="clyilpt7g0002ykqkc3336wx4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-blog/joda-time" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/joda-time/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T09:29:49.869Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="DateTime"><a href="#DateTime" class="headerlink" title="DateTime"></a>DateTime</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> DateTime.now().withTimeAtStartOfDay();</span><br><span class="line">System.out.println(dateTime);</span><br><span class="line"><span class="comment">//2024-07-12T00:00:00.000+08:00 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>DateTime.now().withTimeAtStartOfDay()</code>返回一天的开始</p>
+<ul>
+<li><code>plusDays(int)</code>增加天数</li>
+</ul>
+<h1 id="Days"><a href="#Days" class="headerlink" title="Days"></a>Days</h1><ul>
+<li><code>daysBetween()</code>计算两个DateTime之间的天数</li>
+</ul>
+<h1 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">DateTimeFormatter</span> <span class="variable">DATE_TIME_FORMATTER</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">System.out.println(DATE_TIME_FORMATTER.format(now));</span><br><span class="line"><span class="comment">// 2024-07-12 18:29:06</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/joda-time/" data-id="clyilpt7f0001ykqk82uv5677" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-blog/Guava" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/07/12/blog/Guava/" class="article-date">
@@ -89,6 +198,11 @@
 
 <h1 id="MoreObjects"><a href="#MoreObjects" class="headerlink" title="MoreObjects"></a>MoreObjects</h1><h2 id="toStringHelper"><a href="#toStringHelper" class="headerlink" title="toStringHelper"></a>toStringHelper</h2><p>帮助实现toString方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Main</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MoreObjects.toStringHelper(<span class="built_in">this</span>)</span><br><span class="line">                .add(<span class="string">&quot;name&quot;</span>, name)</span><br><span class="line">                .add(<span class="string">&quot;age&quot;</span>, age)</span><br><span class="line">                .toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Main</span> <span class="variable">main</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>(<span class="string">&quot;Hello&quot;</span>, <span class="number">10</span>);</span><br><span class="line">        System.out.println(main.toString());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Main&#123;name=Hello, age=10&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="firstNotNull"><a href="#firstNotNull" class="headerlink" title="firstNotNull"></a>firstNotNull</h2><p>返回第一个不为null的对象，如果都为null，报异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(MoreObjects.firstNonNull(<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+
 
 <h1 id="ComparisonChain"><a href="#ComparisonChain" class="headerlink" title="ComparisonChain"></a>ComparisonChain</h1><p>用于使用链式调用实现compareTo方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Person&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> wealth;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Person other)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ComparisonChain.start()</span><br><span class="line">                .compare(<span class="built_in">this</span>.age, other.age)</span><br><span class="line">                .compare(<span class="built_in">this</span>.name, other.name)</span><br><span class="line">                .compare(<span class="built_in">this</span>.wealth, other.wealth)</span><br><span class="line">                .result();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -114,40 +228,69 @@
 <h1 id="Throwables"><a href="#Throwables" class="headerlink" title="Throwables"></a>Throwables</h1><h2 id="getRootCause"><a href="#getRootCause" class="headerlink" title="getRootCause"></a>getRootCause</h2><p>对于嵌套的异常结构，递归地返回最里面的异常</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Throwable</span> <span class="variable">rootCause</span> <span class="operator">=</span> Throwables.getRootCause(e);</span><br></pre></td></tr></table></figure>
 
+<h1 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h1><h2 id="isNullOrEmpty-nullToEmpty"><a href="#isNullOrEmpty-nullToEmpty" class="headerlink" title="isNullOrEmpty&#x2F;nullToEmpty"></a>isNullOrEmpty&#x2F;nullToEmpty</h2><h2 id="padStart-padEnd-repeat"><a href="#padStart-padEnd-repeat" class="headerlink" title="padStart&#x2F;padEnd&#x2F;repeat"></a>padStart&#x2F;padEnd&#x2F;repeat</h2><p>padStart和padEnd是在字符串的开头或者末尾填充字符，让字符串的长度到达minlen</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;k&quot;</span>;</span><br><span class="line">System.out.println(Strings.repeat(s, <span class="number">10</span>));</span><br><span class="line">System.out.println(Strings.padStart(s, <span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="commonPrefix-commonSuffix"><a href="#commonPrefix-commonSuffix" class="headerlink" title="commonPrefix&#x2F;commonSuffix"></a>commonPrefix&#x2F;commonSuffix</h2><p>分别用来求两个字符串的最大公共前缀&#x2F;后缀</p>
+<h1 id="Ints"><a href="#Ints" class="headerlink" title="Ints"></a>Ints</h1><h2 id="compare"><a href="#compare" class="headerlink" title="compare"></a>compare</h2><p>判断两个int变量的大小</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>, b = <span class="number">1</span>;</span><br><span class="line">System.out.println(Ints.compare(a, b));</span><br><span class="line"><span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+<p>a &lt; b  -1<br>a &#x3D; b 0<br>a &gt; b 1</p>
+<h2 id="asList"><a href="#asList" class="headerlink" title="asList"></a>asList</h2><p>将int数组转换为<code>List&lt;Integer&gt;</code>是一个不可变的List，调用add方法会报错</p>
+<p>Arrays.asList对于对象数组是正常转成List。对于基础数据类型数组是把整个数组当成一个元素</p>
+<h2 id="contains-max-min"><a href="#contains-max-min" class="headerlink" title="contains&#x2F;max&#x2F;min"></a>contains&#x2F;max&#x2F;min</h2><h1 id="Joiner"><a href="#Joiner" class="headerlink" title="Joiner"></a>Joiner</h1><p>里面不能有null元素，除非用useForNull&#x2F;skipNulls</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String[] words = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="literal">null</span>&#125;;        </span><br><span class="line">System.out.println(Joiner.on(<span class="string">&quot;,&quot;</span>).useForNull(<span class="string">&quot;kk&quot;</span>).join);</span><br><span class="line"><span class="comment">// apple,banana,cherry,kk</span></span><br><span class="line">String[] words = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="literal">null</span>&#125;;        </span><br><span class="line">System.out.println(Joiner.on(<span class="string">&quot;,&quot;</span>).skipNulls().join(words));</span><br><span class="line"><span class="comment">// apple,banana,cherry</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="map拼接"><a href="#map拼接" class="headerlink" title="map拼接"></a>map拼接</h2><p>可以在key和value之间进行拼接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = Maps.newHashMap();</span><br><span class="line">map.put(<span class="string">&quot;key1&quot;</span>, <span class="string">&quot;value1&quot;</span>);</span><br><span class="line">map.put(<span class="string">&quot;key2&quot;</span>, <span class="string">&quot;value2&quot;</span>);</span><br><span class="line">System.out.println(Joiner.on(<span class="string">&quot;,&quot;</span>).withKeyValueSeparator(<span class="string">&quot;+&quot;</span>).join(map));</span><br></pre></td></tr></table></figure>
+
+<h1 id="Splitter"><a href="#Splitter" class="headerlink" title="Splitter"></a>Splitter</h1><p>按照某种模式将字符串进行分割成List或者Map</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;,a,b,&quot;</span>;</span><br><span class="line">String[] jdkSplits = s.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">System.out.println(Arrays.toString(jdkSplits));</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; guavaList = Splitter.on(<span class="string">&quot;,&quot;</span>).splitToList(s);</span><br><span class="line">System.out.println(guavaList);</span><br><span class="line"><span class="comment">// [, a, b]</span></span><br><span class="line"><span class="comment">// [, a, b, ]</span></span><br></pre></td></tr></table></figure>
+
+<p>和String自带的分割区别，jdk会忽略最后的空串</p>
+<h2 id="trimResults"><a href="#trimResults" class="headerlink" title="trimResults"></a>trimResults</h2><p>可以接受CharMatcher，如果不填参数就匹配空白字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;, a + k, b,&quot;</span>;</span><br><span class="line">List&lt;String&gt; guavaList = Splitter.on(<span class="string">&quot;,&quot;</span>).splitToList(s);</span><br><span class="line">List&lt;String&gt; guavaList1 = Splitter.on(<span class="string">&quot;,&quot;</span>).trimResults().splitToList(s);</span><br><span class="line">List&lt;String&gt; guavaList1 = Splitter.on(<span class="string">&quot;,&quot;</span>).trimResults().splitToList(s);</span><br><span class="line">System.out.println(guavaList);</span><br><span class="line">System.out.println(guavaList1);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[,  a + k,  b, ]</span></span><br><span class="line"><span class="comment">[, a + k, b, ]</span></span><br><span class="line"><span class="comment">[,  a + ,  b, ]</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="omitEmptyStrings"><a href="#omitEmptyStrings" class="headerlink" title="omitEmptyStrings"></a>omitEmptyStrings</h2><p>去掉空白的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;, a + k, b,&quot;</span>;</span><br><span class="line">List&lt;String&gt; guavaList = Splitter.on(<span class="string">&quot;,&quot;</span>).trimResults().omitEmptyStrings().splitToList(s);</span><br><span class="line">System.out.println(guavaList);</span><br><span class="line"><span class="comment">// [a + k, b]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="分割成map"><a href="#分割成map" class="headerlink" title="分割成map"></a>分割成map</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;a=1&amp;b=2&amp;c=3&quot;</span>;</span><br><span class="line">Map&lt;String, String&gt; map = Splitter.on(<span class="string">&quot;&amp;&quot;</span>).withKeyValueSeparator(<span class="string">&quot;=&quot;</span>).split(s);</span><br><span class="line">System.out.println(map);</span><br><span class="line"><span class="comment">// &#123;a=1, b=2, c=3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="CharMatcher"><a href="#CharMatcher" class="headerlink" title="CharMatcher"></a>CharMatcher</h1><p>有三类方法：匹配char的模式，组合matcher，对于匹配上的char的操作</p>
+<p>匹配和处理String中的char</p>
+<ol>
+<li>anyOf&#x2F;noneOf&#x2F;isNot</li>
+<li>and&#x2F;or</li>
+<li>removeFrom&#x2F;retainFrom</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;abcde1234&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">result1</span> <span class="operator">=</span> CharMatcher.anyOf(<span class="string">&quot;ab12&quot;</span>).and(CharMatcher.is(<span class="string">&#x27;4&#x27;</span>)).retainFrom(s);</span><br><span class="line"><span class="type">String</span> <span class="variable">result2</span> <span class="operator">=</span> CharMatcher.anyOf(<span class="string">&quot;abc&quot;</span>).retainFrom(s);</span><br><span class="line"></span><br><span class="line">System.out.println(result1);</span><br><span class="line">System.out.println(result2);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">abc</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h1><ol>
+<li>作为返回值，表示返回值可能不存在</li>
+<li>设置默认值</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, String&gt; map = Maps.newHashMap();</span><br><span class="line">map.put(<span class="number">1</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">map.put(<span class="number">2</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> Integer.parseInt(Optional.fromNullable(map.get(<span class="number">1</span>)).or(String.valueOf(<span class="number">0</span>)));</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> Integer.parseInt(Optional.fromNullable(map.get(<span class="number">3</span>)).or(String.valueOf(<span class="number">0</span>)));</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>dubbo不支持Guava的List的反序列化？？？？？</p>
+<p>用于对象转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Function&lt;Integer, String&gt; function = x -&gt; x + <span class="string">&quot; &quot;</span>;</span><br><span class="line">List&lt;Integer&gt; numbers = Ints.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>);</span><br><span class="line">List&lt;String&gt; strings = Lists.transform(numbers, function);</span><br><span class="line">System.out.println(strings);</span><br><span class="line"><span class="comment">//[1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>transform方法的返回值（列表）不支持add方法</p>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>转换集合用了懒加载的思想，不立刻计算</p>
+<h1 id="Predicate"><a href="#Predicate" class="headerlink" title="Predicate"></a>Predicate</h1><p>用于条件判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Predicate&lt;Integer&gt; greaterThan = i -&gt; i &gt; <span class="number">1</span>;</span><br><span class="line">List&lt;Integer&gt; numbers = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>);</span><br><span class="line">Optional&lt;Integer&gt; integerOptional = Iterables.tryFind(numbers, greaterThan);</span><br><span class="line"><span class="keyword">if</span> (integerOptional.isPresent()) &#123;</span><br><span class="line">    System.out.println(integerOptional.get());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/Guava/" data-id="clyi8ezuj0001a4qkhs4iaznn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-blog/1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/07/12/blog/1/" class="article-date">
-  <time class="dt-published" datetime="2024-07-12T04:48:58.928Z" itemprop="datePublished">2024-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>ff</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/1/" data-id="clyi8ezuh0000a4qkc4sfbubs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/blog/Guava/" data-id="clyilpt7b0000ykqk7gjm1tpi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -190,11 +333,19 @@
       <ul>
         
           <li>
-            <a href="/2024/07/12/blog/Guava/">(no title)</a>
+            <a href="/2024/07/12/blog/logback/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2024/07/12/blog/1/">(no title)</a>
+            <a href="/2024/07/12/blog/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/blog/joda-time/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/blog/Guava/">(no title)</a>
           </li>
         
       </ul>
