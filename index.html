@@ -69,6 +69,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-blog/代码规范" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T13:03:04.630Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><ul>
+<li>在返回容器的地方不要返回null,而是返回空容器 ???</li>
+<li>RPC接口返回Java原生容器，避免返回第三方库提供的容器 ???</li>
+</ul>
+<h1 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h1><ul>
+<li>避免复杂的逻辑判断</li>
+<li>循环嵌套不能超过两层</li>
+</ul>
+<h1 id="旧代码"><a href="#旧代码" class="headerlink" title="旧代码"></a>旧代码</h1><ul>
+<li>及时删除确认没用的旧代码</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" data-id="clyirqt3z0002qwqk8o9oho05" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-blog/从CR中学习到的" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/blog/%E4%BB%8ECR%E4%B8%AD%E5%AD%A6%E4%B9%A0%E5%88%B0%E7%9A%84/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T12:43:31.614Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="7-12"><a href="#7-12" class="headerlink" title="7.12"></a>7.12</h1><ul>
+<li>线程池的优雅关闭：用awaitTermination设置等待时间</li>
+<li>DateTimeFormatter为什么是线程安全的：因为它是不可变的</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/blog/%E4%BB%8ECR%E4%B8%AD%E5%AD%A6%E4%B9%A0%E5%88%B0%E7%9A%84/" data-id="clyirqt3x0001qwqk7q6j8cc9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-blog/logback" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/07/12/blog/logback/" class="article-date">
@@ -81,11 +152,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>由logger&#x2F;appender&#x2F;layout</p>
+<ul>
+<li>logger产生日志事件</li>
+<li>appender将日志事件放到日志记录组件</li>
+<li>layout将日志格式化</li>
+</ul>
+<p>有效日志级别：在程序运行过程中使用的日志级别阈值，小于这个级别的不会传给Appender</p>
+<h1 id="logback中使用占位符拼接变量相较于字符串拼接的好处"><a href="#logback中使用占位符拼接变量相较于字符串拼接的好处" class="headerlink" title="logback中使用占位符拼接变量相较于字符串拼接的好处"></a>logback中使用占位符拼接变量相较于字符串拼接的好处</h1><ul>
+<li>如果输出的日志级别低于有效日志级别，用占位符的话就不会进行拼接。可读性更强</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/logback/" data-id="clyilpt7g0003ykqkdbysarig" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/blog/logback/" data-id="clyirqt3z0003qwqk207bf5fs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -109,11 +190,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>错误码</p>
-<ol>
-<li>异常</li>
-</ol>
-<p><code>Exception.printStackTrace</code>无论如何不能被调用</p>
+        <p><code>Exception.printStackTrace</code>无论如何不能被调用</p>
 <h2 id="何时抛出异常"><a href="#何时抛出异常" class="headerlink" title="何时抛出异常"></a>何时抛出异常</h2><p>for循环时，是抛出异常中断for循环还是吞掉异常继续循环，视情况而定</p>
 <p>出现了异常情况，但是不影响正常逻辑，不应该抛出异常</p>
 <h2 id="何时捕获异常"><a href="#何时捕获异常" class="headerlink" title="何时捕获异常"></a>何时捕获异常</h2><ul>
@@ -127,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" data-id="clyilpt7g0002ykqkc3336wx4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/blog/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" data-id="clyirqt3z0004qwqk7qoihuvt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -151,22 +228,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="DateTime"><a href="#DateTime" class="headerlink" title="DateTime"></a>DateTime</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> DateTime.now().withTimeAtStartOfDay();</span><br><span class="line">System.out.println(dateTime);</span><br><span class="line"><span class="comment">//2024-07-12T00:00:00.000+08:00 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h1 id="DateTime"><a href="#DateTime" class="headerlink" title="DateTime"></a>DateTime</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> DateTime.now().withTimeAtStartOfDay();</span><br><span class="line">System.out.println(dateTime);</span><br><span class="line"><span class="comment">//2024-07-12T00:00:00.000+08:00 </span></span><br></pre></td></tr></table></figure>
 
 <p><code>DateTime.now().withTimeAtStartOfDay()</code>返回一天的开始</p>
-<ul>
-<li><code>plusDays(int)</code>增加天数</li>
-</ul>
-<h1 id="Days"><a href="#Days" class="headerlink" title="Days"></a>Days</h1><ul>
-<li><code>daysBetween()</code>计算两个DateTime之间的天数</li>
-</ul>
-<h1 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">DateTimeFormatter</span> <span class="variable">DATE_TIME_FORMATTER</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">System.out.println(DATE_TIME_FORMATTER.format(now));</span><br><span class="line"><span class="comment">// 2024-07-12 18:29:06</span></span><br></pre></td></tr></table></figure>
+<h1 id="增加-减少时间"><a href="#增加-减少时间" class="headerlink" title="增加&#x2F;减少时间"></a>增加&#x2F;减少时间</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> DateTime.now();</span><br><span class="line"></span><br><span class="line"><span class="type">DateTime</span> <span class="variable">oneWeekLater</span> <span class="operator">=</span> dateTime.plusWeeks(<span class="number">1</span>);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">threeDaysBefore</span> <span class="operator">=</span> dateTime.minusDays(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="时间差值"><a href="#时间差值" class="headerlink" title="时间差值"></a>时间差值</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">start</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DateTime</span>(<span class="number">2024</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">12</span>, <span class="number">0</span>);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">end</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DateTime</span>(<span class="number">2024</span>, <span class="number">7</span>, <span class="number">12</span>, <span class="number">14</span>, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">daysBetween</span> <span class="operator">=</span> Days.daysBetween(start, end).getDays();</span><br><span class="line"><span class="type">int</span> <span class="variable">hoursBetween</span> <span class="operator">=</span> Hours.hoursBetween(start, end).getHours();</span><br><span class="line"><span class="type">int</span> <span class="variable">minutesBetween</span> <span class="operator">=</span> Minutes.minutesBetween(start, end).getMinutes();</span><br><span class="line"><span class="type">int</span> <span class="variable">secondsBetween</span> <span class="operator">=</span> Seconds.secondsBetween(start, end).getSeconds();</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/joda-time/" data-id="clyilpt7f0001ykqk82uv5677" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/blog/joda-time/" data-id="clyirqt400005qwqk6mul7ovp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -290,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/blog/Guava/" data-id="clyilpt7b0000ykqk7gjm1tpi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/blog/Guava/" data-id="clyirqt3q0000qwqk2693b65p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -333,6 +406,14 @@
       <ul>
         
           <li>
+            <a href="/2024/07/12/blog/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/12/blog/%E4%BB%8ECR%E4%B8%AD%E5%AD%A6%E4%B9%A0%E5%88%B0%E7%9A%84/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2024/07/12/blog/logback/">(no title)</a>
           </li>
         
@@ -342,10 +423,6 @@
         
           <li>
             <a href="/2024/07/12/blog/joda-time/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/12/blog/Guava/">(no title)</a>
           </li>
         
       </ul>
