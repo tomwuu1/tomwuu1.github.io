@@ -27,20 +27,27 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="实验环境两台在内网的机器（之所以要在内网，是为了避免复杂的网络状况，所以如果只有一台服务器的话，要用容器) 123操作系统：ALinux 3Python版本：Python 3.6.8机器配置：2核 2G  实验目的通过tc模拟可能出现的网络故障，用wireshark分析tcpdump抓取的网络包 实验设置123456789101112131415161718192021# 1.基准状态# 2.延迟">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145318616.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716202838979.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716210301724.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716210534437.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145440281.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211012968.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145359381.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101939759.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717150948925.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717151429120.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717151641582.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717102103651.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154350547.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154635604.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154551902.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103040123.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211831217.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716153051678.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103008890.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101346992.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103802561.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717104240036.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717104440423.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717163409956.png">
 <meta property="article:published_time" content="2024-07-14T05:16:38.000Z">
-<meta property="article:modified_time" content="2024-07-16T14:30:32.780Z">
+<meta property="article:modified_time" content="2024-07-17T09:04:00.106Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145318616.png">
+<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101939759.png">
 
 <link rel="canonical" href="http://example.com/2024/07/14/%E6%A8%A1%E6%8B%9F%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E5%AF%B9%E4%BA%8E%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BD%B1%E5%93%8D/">
 
@@ -190,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-16 22:30:32" itemprop="dateModified" datetime="2024-07-16T22:30:32+08:00">2024-07-16</time>
+                <time title="Modified: 2024-07-17 17:04:00" itemprop="dateModified" datetime="2024-07-17T17:04:00+08:00">2024-07-17</time>
               </span>
 
           
@@ -277,6 +284,11 @@
 <p>启动服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server 8089</span><br></pre></td></tr></table></figure>
 
+<p>显示网络设备上设置的规则</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tc qdisc show</span><br></pre></td></tr></table></figure>
+
+
+
 <p>只有一台服务器，走回环网卡，访问localhost。</p>
 <p>用tcpdump监听8089端口，并重定向到文件，便于用wireshark进行分析</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i lo port 8089 -w ./1.cap</span><br></pre></td></tr></table></figure>
@@ -290,30 +302,40 @@
 <p>容器每次启动后，网络设备的名称还不太一样</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tc qdisc del dev veth4dfcb604 root</span><br></pre></td></tr></table></figure>
 
-<h1 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h1><h2 id="1-基准状态"><a href="#1-基准状态" class="headerlink" title="1.基准状态"></a>1.基准状态</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145318616.png" alt="image-20240716145318616"></p>
-<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716202838979.png" alt="image-20240716202838979"></p>
+<h1 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h1><h2 id="1-基准状态"><a href="#1-基准状态" class="headerlink" title="1.基准状态"></a>1.基准状态</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101939759.png" alt="image-20240717101939759"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717150948925.png" alt="image-20240717150948925"></p>
 <p>用wireshark的时序图放大，进行分析。我们可以看到中间是有一个明显的平台，定位到具体的请求，发现是包的丢失造成的，我们可以发现丢包重传造成的性能损失是巨大的，通过粗略的计算，一次丢包重传所需的时间是传一个包的5000-10000倍。</p>
-<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716210301724.png" alt="image-20240716210301724"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717151429120.png" alt="image-20240717151429120"></p>
 <p>rtt图上几个明显的突峰，经过查看都是包丢失造成的</p>
-<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716210534437.png" alt="image-20240716210534437"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717151641582.png" alt="image-20240717151641582"></p>
 <p>关于吞吐量的疑问：？？？</p>
 <ol>
-<li>为什么会有波峰，波谷。一个猜测是和拥塞控制有关。</li>
-<li>为什么一开始的吞吐量最大。</li>
+<li>为什么会有波峰，波谷。猜测是和拥塞控制有关。在第一段波峰附近查看具体的网络包，发现有大量的TCP Retransmission</li>
+<li>为什么第一个波峰最高。</li>
+<li>根据之前学习过的拥塞控制算法，在第一次快速重传之后，拥塞窗口会变成原来的一般</li>
 </ol>
-<p>32.7s 55000个包</p>
-<h2 id="2-延迟5ms"><a href="#2-延迟5ms" class="headerlink" title="2.延迟5ms"></a>2.延迟5ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145440281.png" alt="image-20240716145440281"></p>
-<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211012968.png" alt="image-20240716211012968"></p>
+<p>70641个包 39.46 s 平均一个包0.55 ms</p>
+<h2 id="2-延迟5ms"><a href="#2-延迟5ms" class="headerlink" title="2.延迟5ms"></a>2.延迟5ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717102103651.png" alt="image-20240717102103651"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154350547.png" alt="image-20240717154350547"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154635604.png" alt="image-20240717154635604"></p>
 <p>通过rtt图观察到的现象是相较于0msdelay，rtt更加均匀，为什么？？？</p>
-<h2 id="3-延迟50ms"><a href="#3-延迟50ms" class="headerlink" title="3.延迟50ms"></a>3.延迟50ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716145359381.png" alt="image-20240716145359381"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154551902.png" alt="image-20240717154551902"></p>
+<p>108229个包 49.53 s 平均一个包0.45 ms。</p>
+<p>疑问相对于</p>
+<h2 id="3-延迟50ms"><a href="#3-延迟50ms" class="headerlink" title="3.延迟50ms"></a>3.延迟50ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103040123.png" alt="image-20240717103040123"></p>
 <p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211831217.png" alt="image-20240716211831217"></p>
 <p>rtt有几个反常的现象：</p>
 <ol>
 <li>突峰代表的网络包，只有一个是因为丢失，其他是正常的包</li>
 <li>延迟变大，最大的rtt反而变小。</li>
 </ol>
-<h2 id="4-延迟500ms"><a href="#4-延迟500ms" class="headerlink" title="4.延迟500ms"></a>4.延迟500ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716153051678.png" alt="image-20240716153051678"></p>
-<h2 id="5-丢包率5"><a href="#5-丢包率5" class="headerlink" title="5.丢包率5%"></a>5.丢包率5%</h2><h2 id="6-丢包率20"><a href="#6-丢包率20" class="headerlink" title="6.丢包率20%"></a>6.丢包率20%</h2><h2 id="7-带宽50Mbps"><a href="#7-带宽50Mbps" class="headerlink" title="7.带宽50Mbps"></a>7.带宽50Mbps</h2><h2 id="8-带宽100Mbps"><a href="#8-带宽100Mbps" class="headerlink" title="8.带宽100Mbps"></a>8.带宽100Mbps</h2><h2 id="9-抖动10ms，延迟50ms"><a href="#9-抖动10ms，延迟50ms" class="headerlink" title="9.抖动10ms，延迟50ms"></a>9.抖动10ms，延迟50ms</h2><h2 id="10-抖动50ms，延迟50ms"><a href="#10-抖动50ms，延迟50ms" class="headerlink" title="10.抖动50ms，延迟50ms"></a>10.抖动50ms，延迟50ms</h2><h2 id="11-乱序5"><a href="#11-乱序5" class="headerlink" title="11.乱序5%"></a>11.乱序5%</h2><h2 id="12-乱序20"><a href="#12-乱序20" class="headerlink" title="12.乱序20%"></a>12.乱序20%</h2><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><h2 id="tc-1"><a href="#tc-1" class="headerlink" title="tc"></a>tc</h2><p>在Linux下进行流量控制的命令，可以用于模拟丢包延时。</p>
+<h2 id="4-延迟500ms"><a href="#4-延迟500ms" class="headerlink" title="4.延迟500ms"></a>4.延迟500ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103008890.png" alt="image-20240717103008890"></p>
+<h2 id="5-丢包率5"><a href="#5-丢包率5" class="headerlink" title="5.丢包率5%"></a>5.丢包率5%</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101346992.png" alt="image-20240717101346992"></p>
+<h2 id="6-丢包率20"><a href="#6-丢包率20" class="headerlink" title="6.丢包率20%"></a>6.丢包率20%</h2><h2 id="7-带宽50Mbps"><a href="#7-带宽50Mbps" class="headerlink" title="7.带宽50Mbps"></a>7.带宽50Mbps</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103802561.png" alt="image-20240717103802561"></p>
+<h2 id="8-带宽100Mbps"><a href="#8-带宽100Mbps" class="headerlink" title="8.带宽100Mbps"></a>8.带宽100Mbps</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717104240036.png" alt="image-20240717104240036"></p>
+<h2 id="9-抖动10ms，延迟50ms"><a href="#9-抖动10ms，延迟50ms" class="headerlink" title="9.抖动10ms，延迟50ms"></a>9.抖动10ms，延迟50ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717104440423.png" alt="image-20240717104440423"></p>
+<h2 id="10-抖动15ms，延迟50ms"><a href="#10-抖动15ms，延迟50ms" class="headerlink" title="10.抖动15ms，延迟50ms"></a>10.抖动15ms，延迟50ms</h2><h2 id="11-乱序5"><a href="#11-乱序5" class="headerlink" title="11.乱序5%"></a>11.乱序5%</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717163409956.png" alt="image-20240717163409956"></p>
+<h2 id="12-乱序20"><a href="#12-乱序20" class="headerlink" title="12.乱序20%"></a>12.乱序20%</h2><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><h2 id="tc-1"><a href="#tc-1" class="headerlink" title="tc"></a>tc</h2><p>在Linux下进行流量控制的命令，可以用于模拟丢包延时。</p>
 <h2 id="sysctl"><a href="#sysctl" class="headerlink" title="sysctl"></a>sysctl</h2><p>用来调整linux的系统参数</p>
 <h2 id="rtt"><a href="#rtt" class="headerlink" title="rtt"></a>rtt</h2><p>round-trip time 往返时间。可以用于衡量网络的阻塞情况</p>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
@@ -334,12 +356,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/12/Guava/" rel="prev" title="Guava">
-      <i class="fa fa-chevron-left"></i> Guava
+    <a href="/2024/07/12/joda-time/" rel="prev" title="joda-time">
+      <i class="fa fa-chevron-left"></i> joda-time
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/07/15/%E4%BB%8ECR%E4%B8%AD%E5%AD%A6%E4%B9%A0%E5%88%B0%E7%9A%84/" rel="next" title="错误处理">
-      错误处理 <i class="fa fa-chevron-right"></i>
+    <a href="/2024/07/15/%E5%B9%B6%E5%8F%91/" rel="next" title="并发">
+      并发 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -400,7 +422,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">实验设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%B7%A5%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">实验工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tc"><span class="nav-number">4.1.</span> <span class="nav-text">tc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">5.1.</span> <span class="nav-text">创建服务器容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text">创建客户端容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%BF%E4%B8%BB%E6%9C%BA"><span class="nav-number">5.3.</span> <span class="nav-text">宿主机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%B0%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">实验现象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E5%87%86%E7%8A%B6%E6%80%81"><span class="nav-number">6.1.</span> <span class="nav-text">1.基准状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%BB%B6%E8%BF%9F5ms"><span class="nav-number">6.2.</span> <span class="nav-text">2.延迟5ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.3.</span> <span class="nav-text">3.延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%BB%B6%E8%BF%9F500ms"><span class="nav-number">6.4.</span> <span class="nav-text">4.延迟500ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%B8%A2%E5%8C%85%E7%8E%875"><span class="nav-number">6.5.</span> <span class="nav-text">5.丢包率5%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%B8%A2%E5%8C%85%E7%8E%8720"><span class="nav-number">6.6.</span> <span class="nav-text">6.丢包率20%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%B8%A6%E5%AE%BD50Mbps"><span class="nav-number">6.7.</span> <span class="nav-text">7.带宽50Mbps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%B8%A6%E5%AE%BD100Mbps"><span class="nav-number">6.8.</span> <span class="nav-text">8.带宽100Mbps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%8A%96%E5%8A%A810ms%EF%BC%8C%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.9.</span> <span class="nav-text">9.抖动10ms，延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%8A%96%E5%8A%A850ms%EF%BC%8C%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.10.</span> <span class="nav-text">10.抖动50ms，延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E4%B9%B1%E5%BA%8F5"><span class="nav-number">6.11.</span> <span class="nav-text">11.乱序5%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E4%B9%B1%E5%BA%8F20"><span class="nav-number">6.12.</span> <span class="nav-text">12.乱序20%</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">7.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tc-1"><span class="nav-number">7.1.</span> <span class="nav-text">tc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sysctl"><span class="nav-number">7.2.</span> <span class="nav-text">sysctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rtt"><span class="nav-number">7.3.</span> <span class="nav-text">rtt</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">8.</span> <span class="nav-text">结论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">实验设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%B7%A5%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">实验工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tc"><span class="nav-number">4.1.</span> <span class="nav-text">tc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">5.1.</span> <span class="nav-text">创建服务器容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text">创建客户端容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%BF%E4%B8%BB%E6%9C%BA"><span class="nav-number">5.3.</span> <span class="nav-text">宿主机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%B0%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">实验现象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E5%87%86%E7%8A%B6%E6%80%81"><span class="nav-number">6.1.</span> <span class="nav-text">1.基准状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%BB%B6%E8%BF%9F5ms"><span class="nav-number">6.2.</span> <span class="nav-text">2.延迟5ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.3.</span> <span class="nav-text">3.延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%BB%B6%E8%BF%9F500ms"><span class="nav-number">6.4.</span> <span class="nav-text">4.延迟500ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%B8%A2%E5%8C%85%E7%8E%875"><span class="nav-number">6.5.</span> <span class="nav-text">5.丢包率5%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%B8%A2%E5%8C%85%E7%8E%8720"><span class="nav-number">6.6.</span> <span class="nav-text">6.丢包率20%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%B8%A6%E5%AE%BD50Mbps"><span class="nav-number">6.7.</span> <span class="nav-text">7.带宽50Mbps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%B8%A6%E5%AE%BD100Mbps"><span class="nav-number">6.8.</span> <span class="nav-text">8.带宽100Mbps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%8A%96%E5%8A%A810ms%EF%BC%8C%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.9.</span> <span class="nav-text">9.抖动10ms，延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%8A%96%E5%8A%A815ms%EF%BC%8C%E5%BB%B6%E8%BF%9F50ms"><span class="nav-number">6.10.</span> <span class="nav-text">10.抖动15ms，延迟50ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E4%B9%B1%E5%BA%8F5"><span class="nav-number">6.11.</span> <span class="nav-text">11.乱序5%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E4%B9%B1%E5%BA%8F20"><span class="nav-number">6.12.</span> <span class="nav-text">12.乱序20%</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">7.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tc-1"><span class="nav-number">7.1.</span> <span class="nav-text">tc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sysctl"><span class="nav-number">7.2.</span> <span class="nav-text">sysctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rtt"><span class="nav-number">7.3.</span> <span class="nav-text">rtt</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">8.</span> <span class="nav-text">结论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -414,7 +436,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
