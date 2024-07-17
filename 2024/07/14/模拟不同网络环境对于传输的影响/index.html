@@ -36,7 +36,9 @@
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154635604.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154551902.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103040123.png">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211831217.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182731640.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182844467.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182651366.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103008890.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101346992.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103802561.png">
@@ -44,7 +46,7 @@
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717104440423.png">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717163409956.png">
 <meta property="article:published_time" content="2024-07-14T05:16:38.000Z">
-<meta property="article:modified_time" content="2024-07-17T09:04:00.106Z">
+<meta property="article:modified_time" content="2024-07-17T10:45:47.335Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101939759.png">
@@ -197,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-17 17:04:00" itemprop="dateModified" datetime="2024-07-17T17:04:00+08:00">2024-07-17</time>
+                <time title="Modified: 2024-07-17 18:45:47" itemprop="dateModified" datetime="2024-07-17T18:45:47+08:00">2024-07-17</time>
               </span>
 
           
@@ -279,7 +281,7 @@
 
 <p>查找出是这个设备<code>vethba4c3022</code></p>
 <p>用tc命令进行模拟</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.基准状态</span></span><br><span class="line"><span class="comment"># 2.延迟5ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 5ms</span><br><span class="line"><span class="comment"># 3.延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms</span><br><span class="line"><span class="comment"># 4.延迟500ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 500ms</span><br><span class="line"><span class="comment"># 5.丢包率5%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem loss 5%</span><br><span class="line"><span class="comment"># 6.丢包率20%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem loss 20%</span><br><span class="line"><span class="comment"># 7.带宽50Mbps</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root tbf rate 50mbit burst 100kb latency 500ms</span><br><span class="line"><span class="comment"># 8.带宽100Mbps</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root tbf rate 100mbit burst 100kb latency 500ms</span><br><span class="line"><span class="comment"># 9.抖动10ms，延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms 10ms</span><br><span class="line"><span class="comment"># 10.抖动50ms，延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms 50ms</span><br><span class="line"><span class="comment"># 11.乱序5%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem reorder 5%</span><br><span class="line"><span class="comment"># 12.乱序20%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem reorder 20%</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.基准状态</span></span><br><span class="line"><span class="comment"># 2.延迟5ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 5ms</span><br><span class="line"><span class="comment"># 3.延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms</span><br><span class="line"><span class="comment"># 4.延迟500ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 500ms</span><br><span class="line"><span class="comment"># 5.丢包率5%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem loss 5%</span><br><span class="line"><span class="comment"># 6.丢包率20%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem loss 20%</span><br><span class="line"><span class="comment"># 7.带宽50Mbps</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root tbf rate 50mbit burst 100kb latency 500ms</span><br><span class="line"><span class="comment"># 8.带宽100Mbps</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root tbf rate 100mbit burst 100kb latency 500ms</span><br><span class="line"><span class="comment"># 9.抖动10ms，延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms 10ms</span><br><span class="line"><span class="comment"># 10.抖动20ms，延迟50ms</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms 20ms</span><br><span class="line"><span class="comment"># 11.乱序5%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms reorder 5%</span><br><span class="line"><span class="comment"># 12.乱序20%</span></span><br><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root netem delay 50ms reorder 20%</span><br></pre></td></tr></table></figure>
 
 <p>启动服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server 8089</span><br></pre></td></tr></table></figure>
@@ -312,7 +314,7 @@
 <ol>
 <li>为什么会有波峰，波谷。猜测是和拥塞控制有关。在第一段波峰附近查看具体的网络包，发现有大量的TCP Retransmission</li>
 <li>为什么第一个波峰最高。</li>
-<li>根据之前学习过的拥塞控制算法，在第一次快速重传之后，拥塞窗口会变成原来的一般</li>
+<li>根据之前学习过的拥塞控制算法，在第一次快速重传之后，拥塞窗口会变成原来的一半，如果我们认为吞吐量可以近似的认为是拥塞窗口，明显与实际情况不符。经过查看用的是cubic算法。</li>
 </ol>
 <p>70641个包 39.46 s 平均一个包0.55 ms</p>
 <h2 id="2-延迟5ms"><a href="#2-延迟5ms" class="headerlink" title="2.延迟5ms"></a>2.延迟5ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717102103651.png" alt="image-20240717102103651"></p>
@@ -320,15 +322,16 @@
 <p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154635604.png" alt="image-20240717154635604"></p>
 <p>通过rtt图观察到的现象是相较于0msdelay，rtt更加均匀，为什么？？？</p>
 <p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717154551902.png" alt="image-20240717154551902"></p>
-<p>108229个包 49.53 s 平均一个包0.45 ms。</p>
-<p>疑问相对于</p>
 <h2 id="3-延迟50ms"><a href="#3-延迟50ms" class="headerlink" title="3.延迟50ms"></a>3.延迟50ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103040123.png" alt="image-20240717103040123"></p>
-<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240716211831217.png" alt="image-20240716211831217"></p>
-<p>rtt有几个反常的现象：</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182731640.png" alt="image-20240717182731640"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182844467.png" alt="image-20240717182844467"></p>
+<p>rtt有几个反常的现象：？？？</p>
 <ol>
-<li>突峰代表的网络包，只有一个是因为丢失，其他是正常的包</li>
+<li>有几个包是0 ms左右的延迟</li>
 <li>延迟变大，最大的rtt反而变小。</li>
 </ol>
+<p>可以看到大部分的rtt是集中在50 ms左右的，和我们设置的延迟50 ms的延迟相吻合。这也启发了我，在一次网络传输中，rtt可能应该是通过rtt的众数计算的。</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717182651366.png" alt="image-20240717182651366"></p>
 <h2 id="4-延迟500ms"><a href="#4-延迟500ms" class="headerlink" title="4.延迟500ms"></a>4.延迟500ms</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103008890.png" alt="image-20240717103008890"></p>
 <h2 id="5-丢包率5"><a href="#5-丢包率5" class="headerlink" title="5.丢包率5%"></a>5.丢包率5%</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717101346992.png" alt="image-20240717101346992"></p>
 <h2 id="6-丢包率20"><a href="#6-丢包率20" class="headerlink" title="6.丢包率20%"></a>6.丢包率20%</h2><h2 id="7-带宽50Mbps"><a href="#7-带宽50Mbps" class="headerlink" title="7.带宽50Mbps"></a>7.带宽50Mbps</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240717103802561.png" alt="image-20240717103802561"></p>
@@ -356,8 +359,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/12/joda-time/" rel="prev" title="joda-time">
-      <i class="fa fa-chevron-left"></i> joda-time
+    <a href="/2024/07/12/Guava/" rel="prev" title="Guava">
+      <i class="fa fa-chevron-left"></i> Guava
     </a></div>
       <div class="post-nav-item">
     <a href="/2024/07/15/%E5%B9%B6%E5%8F%91/" rel="next" title="并发">
