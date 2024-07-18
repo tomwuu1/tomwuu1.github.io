@@ -261,7 +261,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-07-18 11:21:30 / Modified: 14:02:57" itemprop="dateCreated datePublished" datetime="2024-07-18T11:21:30+08:00">2024-07-18</time>
+              <time title="Created: 2024-07-18 11:21:30 / Modified: 22:48:30" itemprop="dateCreated datePublished" datetime="2024-07-18T11:21:30+08:00">2024-07-18</time>
             </span>
 
           
@@ -296,7 +296,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="tc命令的原理"><a href="#tc命令的原理" class="headerlink" title="tc命令的原理"></a>tc命令的原理</h1>
+          <h1 id="tc命令的原理"><a href="#tc命令的原理" class="headerlink" title="tc命令的原理"></a>tc命令的原理</h1><h2 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h2><p>把网络包放入缓冲区，记录时间，时间到了送出来</p>
+<h2 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h2><p>利用令牌桶，tbf -Token Bucket Filter</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tc qdisc add dev veth4dfcb604 root tbf rate 50mbit burst 100kb latency 500ms</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
