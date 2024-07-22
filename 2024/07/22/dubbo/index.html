@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="是否做到面向接口编程，把方法抽象成一个接口，再进行具体的实现 考虑可扩展性 注释：作者信息的注释，方法的注释（出参，入参，异常，功能） 考虑代码的性能，有没有性能更好的实现 在读取文件的时候，考虑大文件对内存的影响（分段读取，流式读取）">
+  <meta name="description" content="结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码检查清单">
-<meta property="og:url" content="http://example.com/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/index.html">
+<meta property="og:title" content="dubbo">
+<meta property="og:url" content="http://example.com/2024/07/22/dubbo/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="是否做到面向接口编程，把方法抽象成一个接口，再进行具体的实现 考虑可扩展性 注释：作者信息的注释，方法的注释（出参，入参，异常，功能） 考虑代码的性能，有没有性能更好的实现 在读取文件的时候，考虑大文件对内存的影响（分段读取，流式读取）">
+<meta property="og:description" content="结构">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-17T09:03:51.000Z">
-<meta property="article:modified_time" content="2024-07-19T08:16:09.546Z">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png">
+<meta property="article:published_time" content="2024-07-22T09:18:43.000Z">
+<meta property="article:modified_time" content="2024-07-22T09:27:57.186Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png">
 
-<link rel="canonical" href="http://example.com/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/">
+<link rel="canonical" href="http://example.com/2024/07/22/dubbo/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>代码检查清单 | Hexo</title>
+  <title>dubbo | Hexo</title>
   
 
 
@@ -150,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/dubbo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          代码检查清单
+          dubbo
         </h1>
 
         <div class="post-meta">
@@ -172,19 +174,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2024-07-17 17:03:51" itemprop="dateCreated datePublished" datetime="2024-07-17T17:03:51+08:00">2024-07-17</time>
+              <time title="Created: 2024-07-22 17:18:43 / Modified: 17:27:57" itemprop="dateCreated datePublished" datetime="2024-07-22T17:18:43+08:00">2024-07-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-19 16:16:09" itemprop="dateModified" datetime="2024-07-19T16:16:09+08:00">2024-07-19</time>
-              </span>
 
           
-            <span id="/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/" class="post-meta-item leancloud_visitors" data-flag-title="代码检查清单" title="Views">
+            <span id="/2024/07/22/dubbo/" class="post-meta-item leancloud_visitors" data-flag-title="dubbo" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -199,8 +195,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/17/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/07/22/dubbo/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/22/dubbo/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -215,13 +211,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li>是否做到面向接口编程，把方法抽象成一个接口，再进行具体的实现</li>
-<li>考虑可扩展性</li>
-<li>注释：作者信息的注释，方法的注释（出参，入参，异常，功能）</li>
-<li>考虑代码的性能，有没有性能更好的实现</li>
-<li>在读取文件的时候，考虑大文件对内存的影响（分段读取，流式读取）</li>
-</ol>
+        <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png" alt="img"></p>
 
     </div>
 
@@ -237,13 +227,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/17/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/" rel="prev" title="拥塞控制算法">
-      <i class="fa fa-chevron-left"></i> 拥塞控制算法
+    <a href="/2024/07/22/Guava-Splitter%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" rel="prev" title="Guava-Splitter源码阅读">
+      <i class="fa fa-chevron-left"></i> Guava-Splitter源码阅读
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/18/tc/" rel="next" title="tc">
-      tc <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -303,6 +290,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">结构</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
