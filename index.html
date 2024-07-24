@@ -168,8 +168,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2024-07-24 20:32:40" itemprop="dateCreated datePublished" datetime="2024-07-24T20:32:40+08:00">2024-07-24</time>
+              <time title="Created: 2024-07-24 20:32:40 / Modified: 20:48:53" itemprop="dateCreated datePublished" datetime="2024-07-24T20:32:40+08:00">2024-07-24</time>
             </span>
 
           
@@ -204,7 +205,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="HashedWheelTimer"><a href="#HashedWheelTimer" class="headerlink" title="HashedWheelTimer"></a>HashedWheelTimer</h1><p>时间轮算法</p>
+<ul>
+<li>将时间划分为多个槽（buckets），每个槽表示一个时间间隔（tick duration）。</li>
+<li>定时任务被放置到相应的槽中。</li>
+<li>通过单个线程循环扫描槽中的任务，降低系统开销。</li>
+</ul>
+<p>单个线程扫多个任务，降低开销</p>
+<h1 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h1><ul>
+<li><strong>适用场景</strong>:<ul>
+<li>适用于处理任务量较少的情况。</li>
+<li>时间粒度低的任务调度（如毫秒级别的任务）。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
