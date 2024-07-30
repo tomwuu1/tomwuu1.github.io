@@ -145,6 +145,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/30/PostgreSQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/30/PostgreSQL/" class="post-title-link" itemprop="url">PostgreSQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-07-30 10:02:14 / Modified: 14:19:48" itemprop="dateCreated datePublished" datetime="2024-07-30T10:02:14+08:00">2024-07-30</time>
+            </span>
+
+          
+            <span id="/2024/07/30/PostgreSQL/" class="post-meta-item leancloud_visitors" data-flag-title="PostgreSQL" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/30/PostgreSQL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/30/PostgreSQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>丰富的数据类型</li>
+<li>强大的对应用透明的原生表分区功能</li>
+<li>开源里最好的地理信息插件PostGIS</li>
+<li>外部数据源支持</li>
+<li>Online DDL（无论加字段的表多大及是否带not null default，都秒级完成）</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>用docker安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker run --name my_postgres -e POSTGRES_PASSWORD=123456 -d postgres</span><br><span class="line">docker <span class="built_in">exec</span> -it my_postgres psql -U postgres</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="psql常用命令"><a href="#psql常用命令" class="headerlink" title="psql常用命令"></a>psql常用命令</h1><p>\h：help命令</p>
+<p>\l：查看数据库列表</p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><ol>
+<li>长度不能超过63个字符</li>
+<li>不建议以pg开头，不建议以数字开头</li>
+<li>禁止使用SQL关键字</li>
+</ol>
+<p>图片</p>
+<h1 id="字段设计"><a href="#字段设计" class="headerlink" title="字段设计"></a>字段设计</h1><ol>
+<li>用varchar(n)而不是char(n)</li>
+<li>使用default null（占用1bit），而不用default ‘’（32bit)</li>
+<li>使用timestamp with time zone，支持业务国际化</li>
+<li>使用numeric（precision,scale）</li>
+<li>用hstore存储key-value类型，对数不定的</li>
+<li>用ltree来存储树状结构</li>
+<li>用jsonb（比json更好，json是基于对于输入的解析），jsonb是解析完的二进制。jsonb可以创建索引</li>
+<li>用Geometric Types结合PostGIS对于地理信息存储</li>
+<li>用range类型实现范围存储</li>
+<li>在给date,timestamptz设置default值的时候用now()</li>
+<li></li>
+</ol>
+<h1 id="索引设计"><a href="#索引设计" class="headerlink" title="索引设计"></a>索引设计</h1><ol>
+<li>加删&#x2F;索引，加CONCURRENTLY参数，提升并发效果</li>
+</ol>
+<h1 id="关于NULL"><a href="#关于NULL" class="headerlink" title="关于NULL"></a>关于NULL</h1><ol>
+<li>NULL的判断：IS NULL</li>
+<li>boolean类型取值true,false,NULL</li>
+<li>对字符串类型&#x2F;hstore ，对NULL值处理之后用 ||处理 ？？？</li>
+<li></li>
+</ol>
+<h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><ol>
+<li>避免select *，</li>
+<li>大批量数据入库用copy，不用insert</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,10 +372,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-07-29 11:22:37 / Modified: 16:13:25" itemprop="dateCreated datePublished" datetime="2024-07-29T11:22:37+08:00">2024-07-29</time>
+              <time title="Created: 2024-07-29 11:22:37" itemprop="dateCreated datePublished" datetime="2024-07-29T11:22:37+08:00">2024-07-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-30 22:29:47" itemprop="dateModified" datetime="2024-07-30T22:29:47+08:00">2024-07-30</time>
+              </span>
 
           
             <span id="/2024/07/29/MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL" title="Views">
@@ -426,7 +556,12 @@
 <li>否定条件：!&#x3D;， not in ，not exists</li>
 <li>join中连接字段类型&#x2F;字符集不一致</li>
 </ul>
-<h1 id="GTID"><a href="#GTID" class="headerlink" title="GTID"></a>GTID</h1><h1 id="避免bad-sql"><a href="#避免bad-sql" class="headerlink" title="避免bad sql"></a>避免bad sql</h1><ul>
+<h1 id="GTID"><a href="#GTID" class="headerlink" title="GTID"></a>GTID</h1><p>server_id+transaction_id</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>简化故障转移</li>
+<li>简化日志管理</li>
+</ul>
+<h1 id="避免bad-sql"><a href="#避免bad-sql" class="headerlink" title="避免bad sql"></a>避免bad sql</h1><ul>
 <li><p>delete from改成 truncate table</p>
 </li>
 <li><p>select&#x2F;update范围大，改成分段做，一定要有索引可走</p>
@@ -435,7 +570,7 @@
 </li>
 <li><p>禁止select *</p>
 </li>
-<li><p>避免出现大事务（容易出现锁等待超时</p>
+<li><p>避免出现大事务（容易出现锁等待超时）</p>
 </li>
 <li><p>事务里面不能夹杂RPC(会出现数据不一致情况)</p>
 </li>
@@ -446,7 +581,16 @@
 <li><p>统计信息类SQL一定要离线库跑</p>
 </li>
 </ul>
-
+<h1 id="半同步复制"><a href="#半同步复制" class="headerlink" title="半同步复制"></a>半同步复制</h1><p>主库将binlog发送给所有配置为半同步复制的从库。接收到至少一个从库的ack后，才会返回客户端确认事务提交成功</p>
+<h1 id="MySQL集群架构"><a href="#MySQL集群架构" class="headerlink" title="MySQL集群架构"></a>MySQL集群架构</h1><h2 id="3M架构"><a href="#3M架构" class="headerlink" title="3M架构"></a>3M架构</h2><p>应用程序通过VIP连接</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222938002.png" alt="image-20240730222938002"></p>
+<p>缺点：不能跨机房（VIP），不能做多线程复制，moniter单点</p>
+<h2 id="qmha"><a href="#qmha" class="headerlink" title="qmha"></a>qmha</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222920715.png" alt="image-20240730222920715"></p>
+<h2 id="PXC架构"><a href="#PXC架构" class="headerlink" title="PXC架构"></a>PXC架构</h2><p>节点对等，多写。namespace，</p>
+<p>如果同一个集群节点多了，会影响性能</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222330013.png" alt="image-20240730222330013"></p>
+<p>切换更流畅</p>
+<h1 id="pt-osc"><a href="#pt-osc" class="headerlink" title="pt-osc"></a>pt-osc</h1>
       
     </div>
 
@@ -1079,89 +1223,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/19/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/19/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">接口规范</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-19 17:34:48 / Modified: 17:43:00" itemprop="dateCreated datePublished" datetime="2024-07-19T17:34:48+08:00">2024-07-19</time>
-            </span>
-
-          
-            <span id="/2024/07/19/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="post-meta-item leancloud_visitors" data-flag-title="接口规范" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/19/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/19/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>http接口返回用@JsonBody</p>
-<ul>
-<li>GET请求注意URL长度限制</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1231,7 +1292,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

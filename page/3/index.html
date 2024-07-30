@@ -145,6 +145,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/17/Wireshark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/17/Wireshark/" class="post-title-link" itemprop="url">Wireshark</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-07-17 15:36:12" itemprop="dateCreated datePublished" datetime="2024-07-17T15:36:12+08:00">2024-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-30 18:52:29" itemprop="dateModified" datetime="2024-07-30T18:52:29+08:00">2024-07-30</time>
+              </span>
+
+          
+            <span id="/2024/07/17/Wireshark/" class="post-meta-item leancloud_visitors" data-flag-title="Wireshark" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/17/Wireshark/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/17/Wireshark/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="对某个数据包进行分析"><a href="#对某个数据包进行分析" class="headerlink" title="对某个数据包进行分析"></a>对某个数据包进行分析</h1><h2 id="IP层"><a href="#IP层" class="headerlink" title="IP层"></a>IP层</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730145129014.png" alt="image-20240730145129014"></p>
+<ul>
+<li>Identification：数据包的唯一标识</li>
+<li>标志位：<ul>
+<li>Don’t fragment：表示数据包不能被分片</li>
+<li>More fragments：表示这是数据包的最后一个分片（或数据包没有分片）</li>
+<li>Fragment Offset：片偏移</li>
+</ul>
+</li>
+<li>TTL：数据包在被丢弃前可以通过的最大路由器跳数，初始值通常由操作系统设置。</li>
+<li>Header Checksum：用于验证数据包头部的完整性</li>
+</ul>
+<h2 id="TCP层"><a href="#TCP层" class="headerlink" title="TCP层"></a>TCP层</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730150308665.png" alt="image-20240730150308665"></p>
+<ul>
+<li>Stream index：wireshark用于标记一个连接的标识</li>
+<li>Conversation completeness：这个是wireshark提供的会话完整性分析，并不是TCP自带的字段。</li>
+</ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><p>RST包意味着重大问题</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a target="_blank" rel="noopener" href="https://www.ilikejobs.com/posts/wireshark/">https://www.ilikejobs.com/posts/wireshark/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/17/RT%EF%BC%8C%E5%B9%B6%E5%8F%91%E5%92%8CQPS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +272,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-07-17 14:22:08 / Modified: 15:09:40" itemprop="dateCreated datePublished" datetime="2024-07-17T14:22:08+08:00">2024-07-17</time>
+              <time title="Created: 2024-07-17 14:22:08" itemprop="dateCreated datePublished" datetime="2024-07-17T14:22:08+08:00">2024-07-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-30 11:24:20" itemprop="dateModified" datetime="2024-07-30T11:24:20+08:00">2024-07-30</time>
+              </span>
 
           
             <span id="/2024/07/17/RT%EF%BC%8C%E5%B9%B6%E5%8F%91%E5%92%8CQPS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="RT，并发和QPS之间的关系" title="Views">
@@ -206,6 +316,7 @@
 
       
           <h1 id="RT"><a href="#RT" class="headerlink" title="RT"></a>RT</h1><p>Response Time（响应时间）</p>
+<p>考虑客户端渲染的时间</p>
 <p>客户端RT &#x3D; RTT+ 服务端RT</p>
 <p>服务端RT &#x3D; CPU Time + Wait Time</p>
 <p>例子：一个请求10 ms，CPU Time 1 ms，Wait Time 9 ms。单线程的QPS &#x3D; 100。</p>
@@ -958,98 +1069,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/15/%E5%B9%B6%E5%8F%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/15/%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">并发</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-07-15 13:16:38" itemprop="dateCreated datePublished" datetime="2024-07-15T13:16:38+08:00">2024-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-17 18:22:28" itemprop="dateModified" datetime="2024-07-17T18:22:28+08:00">2024-07-17</time>
-              </span>
-
-          
-            <span id="/2024/07/15/%E5%B9%B6%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="并发" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/15/%E5%B9%B6%E5%8F%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/15/%E5%B9%B6%E5%8F%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h1><h2 id="futuretask"><a href="#futuretask" class="headerlink" title="futuretask"></a>futuretask</h2><p>缺点：线程阻塞</p>
-<h2 id="future组合"><a href="#future组合" class="headerlink" title="future组合"></a>future组合</h2><p>串并联</p>
-<p>并联（Futures）</p>
-<h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><ul>
-<li>setDaemon：设置守护线程，</li>
-<li>join</li>
-</ul>
-<h1 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1119,7 +1138,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
