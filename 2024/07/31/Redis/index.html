@@ -20,21 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="结构">
+  <meta name="description" content="集群架构cluster 优点：动态扩容 缺点：存储Slot-Key关系占用较多内存，Key迁移是阻塞。 Proxy 优点：解耦Client访问逻辑和Redis分片逻辑 缺点：Proxy中转存在性能损耗  优点：直接访问Redis，性能高。支持动态扩容。 zookeeper：SDK服务注册中心，Redis实例变更通知中心 Sentinel集群：故障之后负责更新Zookeeper和配置中心 规范 避免">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dubbo">
-<meta property="og:url" content="http://example.com/2024/07/22/dubbo/index.html">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://example.com/2024/07/31/Redis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="结构">
+<meta property="og:description" content="集群架构cluster 优点：动态扩容 缺点：存储Slot-Key关系占用较多内存，Key迁移是阻塞。 Proxy 优点：解耦Client访问逻辑和Redis分片逻辑 缺点：Proxy中转存在性能损耗  优点：直接访问Redis，性能高。支持动态扩容。 zookeeper：SDK服务注册中心，Redis实例变更通知中心 Sentinel集群：故障之后负责更新Zookeeper和配置中心 规范 避免">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png">
-<meta property="article:published_time" content="2024-07-22T09:18:43.000Z">
-<meta property="article:modified_time" content="2024-07-22T09:27:57.186Z">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731183942723.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184234674.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184536459.png">
+<meta property="article:published_time" content="2024-07-31T10:39:02.000Z">
+<meta property="article:modified_time" content="2024-07-31T10:55:29.360Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png">
+<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731183942723.png">
 
-<link rel="canonical" href="http://example.com/2024/07/22/dubbo/">
+<link rel="canonical" href="http://example.com/2024/07/31/Redis/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>dubbo | Hexo</title>
+  <title>Redis | Hexo</title>
   
 
 
@@ -152,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/dubbo/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dubbo
+          Redis
         </h1>
 
         <div class="post-meta">
@@ -176,11 +178,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-07-22 17:18:43 / Modified: 17:27:57" itemprop="dateCreated datePublished" datetime="2024-07-22T17:18:43+08:00">2024-07-22</time>
+              <time title="Created: 2024-07-31 18:39:02 / Modified: 18:55:29" itemprop="dateCreated datePublished" datetime="2024-07-31T18:39:02+08:00">2024-07-31</time>
             </span>
 
           
-            <span id="/2024/07/22/dubbo/" class="post-meta-item leancloud_visitors" data-flag-title="dubbo" title="Views">
+            <span id="/2024/07/31/Redis/" class="post-meta-item leancloud_visitors" data-flag-title="Redis" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -195,8 +197,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/07/22/dubbo/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/22/dubbo/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/07/31/Redis/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/31/Redis/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -211,7 +213,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png" alt="img"></p>
+        <h1 id="集群架构"><a href="#集群架构" class="headerlink" title="集群架构"></a>集群架构</h1><h2 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731183942723.png"></p>
+<p>优点：动态扩容</p>
+<p>缺点：存储Slot-Key关系占用较多内存，Key迁移是阻塞。</p>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184234674.png" alt="image-20240731184234674"></p>
+<p>优点：解耦Client访问逻辑和Redis分片逻辑</p>
+<p>缺点：Proxy中转存在性能损耗</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184536459.png" alt="image-20240731184536459"></p>
+<p>优点：直接访问Redis，性能高。支持动态扩容。</p>
+<p>zookeeper：SDK服务注册中心，Redis实例变更通知中心</p>
+<p>Sentinel集群：故障之后负责更新Zookeeper和配置中心</p>
+<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
+<li>避免bigkey。string &lt; 10KB。hash,list,set,zset元素个数&lt;5000.</li>
+<li>避免直接删除bigkey。</li>
+<li></li>
+</ol>
 
     </div>
 
@@ -227,13 +243,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/22/Guava-Splitter%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" rel="prev" title="Guava-Splitter源码阅读">
-      <i class="fa fa-chevron-left"></i> Guava-Splitter源码阅读
+    <a href="/2024/07/31/MyBatis/" rel="prev" title="MyBatis">
+      <i class="fa fa-chevron-left"></i> MyBatis
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/24/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%B7%A5%E5%85%B7/" rel="next" title="定时任务工具">
-      定时任务工具 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -293,7 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">集群架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cluster"><span class="nav-number">1.1.</span> <span class="nav-text">cluster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy"><span class="nav-number">1.2.</span> <span class="nav-text">Proxy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">2.</span> <span class="nav-text">规范</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
