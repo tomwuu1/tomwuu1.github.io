@@ -145,6 +145,220 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/" class="post-title-link" itemprop="url">Spring作业课</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-01 20:48:23 / Modified: 20:48:42" itemprop="dateCreated datePublished" datetime="2024-08-01T20:48:23+08:00">2024-08-01</time>
+            </span>
+
+          
+            <span id="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Spring作业课" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>事务</p>
+<p>save 和update</p>
+<p>异常往外抛合不合理。</p>
+<p>小黄鸭调试法</p>
+<h1 id="接口隔离"><a href="#接口隔离" class="headerlink" title="接口隔离"></a>接口隔离</h1><p>读写分离，扩展方向不一样，扩展上潜在的耦合。调用方，读和写都有要求才能调用，被动感知，按需设计sps，不同的使用方提供不同等级&#x2F;容量的服务，设计接口的时候，对于容量的需求。有哪些请求方，让它们看到应该看到。</p>
+<p>读和写可能相互影响</p>
+<p>读和读都可能要隔离，快照和当前读。</p>
+<p>接口设计</p>
+<p>自定义异常：快速定位问题，要有多个异常，进行区分典型的业务场景和典型操作。</p>
+<p>api response：error message（具体的错误信息），对于使用方的考虑。vo，偶发的异常oom允许重试，重大的错误没法重试直接返回。</p>
+<p>切面的问题：无感知，方便，但不一定是正向影响。出现问题没法定位。什么时候完全无感知是好的：组件层面</p>
+<p>加try-catch：如果切面逻辑有问题，避免影响业务代码。</p>
+<p>计时：正常完成时间，异常完成时间，要根据业务流程的退出状态分别记录耗时。只计算正常完成的时间，异常退出要另做处理。获取System时间戳，有性能瓶颈（如何优雅的获取时间戳），缓存以毫秒作为记录。</p>
+<p>打印异常：信息冗余。？？？</p>
+<p>分层结构：下一层不应该感知到上一层的存在。</p>
+<p>圈复杂度：用于衡量一个程序的复杂程度的度量方法</p>
+<p>不建议超过两层缩进</p>
+<p>jsr303校验，通过BindingResult获取校验结果</p>
+<p>建表：create_time，update_time</p>
+<p>老数据库显式的关闭事务提交，</p>
+<p>嵌套事务（代码实践）</p>
+<p>事务范围：定义db Service再在db service上进行事务管理</p>
+<p>单测：盖亚</p>
+<p>vo&#x2F;dto&#x2F;do&#x2F;entity：</p>
+<p>vo：入参（也和页面相关）和出参</p>
+<p>rpm&#x2F;rmi</p>
+<p>dubbo：group业务集群做区分。</p>
+<p>provider和consumer都要调api</p>
+<p>rpc 传的对象要实现序列化。设置序列化ID，如果不设置没法进行兼容（默认-1），idea自动设置序列化ID </p>
+<p>api：里面不会引入lombok，api尽量不要引入其他包。api自定义的类里面，定义无参构造函数，避免有人加入了一个有参构造函数。</p>
+<p>序列化工具依赖无参构造方法</p>
+<p>dubbo provider异常不应该抛到外面去，包装返回类error message。如果能处理，可以抛出异常（比如参数有问题），放到方法签名里，dubbo的filter。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">安全知识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-01 14:05:23 / Modified: 14:41:10" itemprop="dateCreated datePublished" datetime="2024-08-01T14:05:23+08:00">2024-08-01</time>
+            </span>
+
+          
+            <span id="/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="安全知识" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="XSS跨站脚本攻击"><a href="#XSS跨站脚本攻击" class="headerlink" title="XSS跨站脚本攻击"></a>XSS跨站脚本攻击</h1><p>反射型，存储型</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240801141111682.png" alt="image-20240801141111682"></p>
+<p>向web页面插入恶意script代码（通过诱导用户点击链接）</p>
+<h2 id="防护手段："><a href="#防护手段：" class="headerlink" title="防护手段："></a>防护手段：</h2><ol>
+<li>编码转移：在存储和显示时对于引号、尖括号、斜杠进行转义</li>
+<li>HttpOnly Cookie</li>
+<li>CSP（Content Security Policy），告诉浏览器哪些外部资源可以加载和执行。</li>
+</ol>
+<h1 id="CSRF跨站请求伪造"><a href="#CSRF跨站请求伪造" class="headerlink" title="CSRF跨站请求伪造"></a>CSRF跨站请求伪造</h1><p>用户已经获取了一个cookie，恶意网站在访问的时候，构造请求（带上cookie）</p>
+<h2 id="防护手段"><a href="#防护手段" class="headerlink" title="防护手段"></a>防护手段</h2><ol>
+<li>CSRF令牌（生成表单的时候生成这个令牌，用来确认这个请求是合法的）</li>
+<li>密码确认</li>
+</ol>
+<h1 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h1><p>对客户端伪装成服务端</p>
+<h1 id="黑产武器"><a href="#黑产武器" class="headerlink" title="黑产武器"></a>黑产武器</h1><p>秒拨型代理IP：家用带宽拨号上网，断线重连获取新的IP</p>
+<p>猫池：虚拟运营商的非实名手机卡</p>
+<p>接码平台</p>
+<h1 id="风控安全组件"><a href="#风控安全组件" class="headerlink" title="风控安全组件"></a>风控安全组件</h1><ol>
+<li>设备指纹</li>
+<li>环境检测</li>
+<li>验证码（行为验证，</li>
+<li>接口防护（通过唯一随机字符串nonce，作为每一个请求的唯一标识符）</li>
+</ol>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240801144010291.png" alt="image-20240801144010291"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -262,10 +476,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-07-31 14:01:48 / Modified: 14:17:35" itemprop="dateCreated datePublished" datetime="2024-07-31T14:01:48+08:00">2024-07-31</time>
+              <time title="Created: 2024-07-31 14:01:48" itemprop="dateCreated datePublished" datetime="2024-07-31T14:01:48+08:00">2024-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-01 20:58:03" itemprop="dateModified" datetime="2024-08-01T20:58:03+08:00">2024-08-01</time>
+              </span>
 
           
             <span id="/2024/07/31/MyBatis/" class="post-meta-item leancloud_visitors" data-flag-title="MyBatis" title="Views">
@@ -300,6 +520,20 @@
 
       
           <p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/mybatis-y-arch-1.png" alt="img"></p>
+<p>插件：在SQL语句的执行中进行拦截。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>Handler：可以自定义类型处理器</p>
+<p>Environments：可以将SQL映射应用于多个数据库</p>
+<p>settings：全局的设置</p>
+<h1 id="XML映射器"><a href="#XML映射器" class="headerlink" title="XML映射器"></a>XML映射器</h1><h1 id="动态SQL标签"><a href="#动态SQL标签" class="headerlink" title="动态SQL标签"></a>动态SQL标签</h1><p><where>标签：可以自动去掉多余的and&#x2F;or</p>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
+<li>一级缓存和二级缓存屏蔽（分布式）</li>
+<li>用<![CDATA[ ]]>标记判断条件，放到<where>、<if>里面（有转移字符的）</li>
+<li>如判断不是String类型，不要加!&#x3D;’’的条件，否则判断为 false</li>
+<li>对于集合类型的返回值，如果没有查找到相关的内容，并不会返回null，而是返回空的集合，但是对于自定义的对象，没有查找到信息时直接返回一个null</li>
+<li>使用where id in ()进行查询，没有内容会报错，需要判空，同时size大于0</li>
+<li>定义Bean属性用包装类型，防止查询、更新异常（会抛出异常）</li>
+<li></li>
+</ol>
 
       
     </div>
@@ -319,7 +553,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -333,7 +567,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/07/31/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《非对称风险》读书笔记</a>
+            <a href="/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《非对称风险》读书笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -342,13 +576,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-07-31 13:14:49 / Modified: 13:27:12" itemprop="dateCreated datePublished" datetime="2024-07-31T13:14:49+08:00">2024-07-31</time>
+              <time title="Created: 2024-07-31 13:14:49" itemprop="dateCreated datePublished" datetime="2024-07-31T13:14:49+08:00">2024-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-01 13:49:05" itemprop="dateModified" datetime="2024-08-01T13:49:05+08:00">2024-08-01</time>
+              </span>
 
           
-            <span id="/2024/07/31/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="《非对称风险》读书笔记" title="Views">
+            <span id="/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="《非对称风险》读书笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -363,8 +603,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/07/31/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/31/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -380,6 +620,14 @@
 
       
           <p>风险共担</p>
+<p>四个主题</p>
+<ol>
+<li>知识（具体实践和科学分析）的不确定性和可靠性</li>
+<li>人类事务的对称性原则，包括公平、正义、责任感、互惠性</li>
+<li>交易中的信息共享</li>
+<li>复杂系统以及现实世界中的理性</li>
+</ol>
+<p>道德、风俗、技能和责任不能在现实生活中相互 割裂开来</p>
 <h1 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h1><p>作为游戏规则的设计者，如果想让游戏公平，那就让风险和收益对等。如果想让游戏不公平，可以利用信息的不对称性把一部分的风险转移到其他人身上，提高自己的收益</p>
 
       
@@ -505,86 +753,6 @@
 <li>大批量数据入库用copy，不用insert</li>
 <li></li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/" class="post-title-link" itemprop="url">操作数据库和使用DBA平台</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-29 16:13:14 / Modified: 16:20:27" itemprop="dateCreated datePublished" datetime="2024-07-29T16:13:14+08:00">2024-07-29</time>
-            </span>
-
-          
-            <span id="/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/" class="post-meta-item leancloud_visitors" data-flag-title="操作数据库和使用DBA平台" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/29/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%BF%E7%94%A8DBA%E5%B9%B3%E5%8F%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="putin"><a href="#putin" class="headerlink" title="putin"></a>putin</h1><p>所有附件必须是utf8（linux）因为windows utf8换行和linux下的不一样</p>
 
       
     </div>
@@ -1142,92 +1310,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">基础组件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-25 10:13:43 / Modified: 20:01:17" itemprop="dateCreated datePublished" datetime="2024-07-25T10:13:43+08:00">2024-07-25</time>
-            </span>
-
-          
-            <span id="/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="基础组件" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Qconfig"><a href="#Qconfig" class="headerlink" title="Qconfig"></a>Qconfig</h1><p>支持配置文件热更新</p>
-<p>可以选择静态&#x2F;动态</p>
-<p>使用方式：注解&#x2F;API</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1293,7 +1379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
