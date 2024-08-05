@@ -145,6 +145,395 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/30/PostgreSQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/30/PostgreSQL/" class="post-title-link" itemprop="url">PostgreSQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-07-30 10:02:14 / Modified: 14:19:48" itemprop="dateCreated datePublished" datetime="2024-07-30T10:02:14+08:00">2024-07-30</time>
+            </span>
+
+          
+            <span id="/2024/07/30/PostgreSQL/" class="post-meta-item leancloud_visitors" data-flag-title="PostgreSQL" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/30/PostgreSQL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/30/PostgreSQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>丰富的数据类型</li>
+<li>强大的对应用透明的原生表分区功能</li>
+<li>开源里最好的地理信息插件PostGIS</li>
+<li>外部数据源支持</li>
+<li>Online DDL（无论加字段的表多大及是否带not null default，都秒级完成）</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>用docker安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker run --name my_postgres -e POSTGRES_PASSWORD=123456 -d postgres</span><br><span class="line">docker <span class="built_in">exec</span> -it my_postgres psql -U postgres</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="psql常用命令"><a href="#psql常用命令" class="headerlink" title="psql常用命令"></a>psql常用命令</h1><p>\h：help命令</p>
+<p>\l：查看数据库列表</p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><ol>
+<li>长度不能超过63个字符</li>
+<li>不建议以pg开头，不建议以数字开头</li>
+<li>禁止使用SQL关键字</li>
+</ol>
+<p>图片</p>
+<h1 id="字段设计"><a href="#字段设计" class="headerlink" title="字段设计"></a>字段设计</h1><ol>
+<li>用varchar(n)而不是char(n)</li>
+<li>使用default null（占用1bit），而不用default ‘’（32bit)</li>
+<li>使用timestamp with time zone，支持业务国际化</li>
+<li>使用numeric（precision,scale）</li>
+<li>用hstore存储key-value类型，对数不定的</li>
+<li>用ltree来存储树状结构</li>
+<li>用jsonb（比json更好，json是基于对于输入的解析），jsonb是解析完的二进制。jsonb可以创建索引</li>
+<li>用Geometric Types结合PostGIS对于地理信息存储</li>
+<li>用range类型实现范围存储</li>
+<li>在给date,timestamptz设置default值的时候用now()</li>
+<li></li>
+</ol>
+<h1 id="索引设计"><a href="#索引设计" class="headerlink" title="索引设计"></a>索引设计</h1><ol>
+<li>加删&#x2F;索引，加CONCURRENTLY参数，提升并发效果</li>
+</ol>
+<h1 id="关于NULL"><a href="#关于NULL" class="headerlink" title="关于NULL"></a>关于NULL</h1><ol>
+<li>NULL的判断：IS NULL</li>
+<li>boolean类型取值true,false,NULL</li>
+<li>对字符串类型&#x2F;hstore ，对NULL值处理之后用 ||处理 ？？？</li>
+<li></li>
+</ol>
+<h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><ol>
+<li>避免select *，</li>
+<li>大批量数据入库用copy，不用insert</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/29/MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/29/MySQL/" class="post-title-link" itemprop="url">MySQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-07-29 11:22:37" itemprop="dateCreated datePublished" datetime="2024-07-29T11:22:37+08:00">2024-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-31 16:56:26" itemprop="dateModified" datetime="2024-07-31T16:56:26+08:00">2024-07-31</time>
+              </span>
+
+          
+            <span id="/2024/07/29/MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/29/MySQL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/29/MySQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>表字符集，无特殊情况请一律使用utf8mb4</p>
+<h1 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<p>比delete快</p>
+<p>alter修改表的结构</p>
+<h1 id="如何查看表的结构信息？如何查看索引选择性？"><a href="#如何查看表的结构信息？如何查看索引选择性？" class="headerlink" title="如何查看表的结构信息？如何查看索引选择性？"></a>如何查看表的结构信息？如何查看索引选择性？</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESCRIBE</span> author;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h1><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240729132725994.png" alt="image-20240729132725994"></p>
+<h2 id="物理存储结构"><a href="#物理存储结构" class="headerlink" title="物理存储结构"></a>物理存储结构</h2><ul>
+<li>MyISAM</li>
+</ul>
+<p><code>.frm</code> 文件：存储表的结构定义。</p>
+<p><code>.MYD</code> 文件：存储表的数据（MyISAM Data）。</p>
+<p><code>.MYI</code> 文件：存储表的索引（MyISAM Index）。</p>
+<ul>
+<li>Innodb</li>
+</ul>
+<p><code>.frm</code> 文件：存储表的结构定义。</p>
+<p><code>.ibd</code> 文件：存储表的数据和索引（InnoDB Data）。</p>
+<h1 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h1><p>整形括号里面的数字不影响范围</p>
+<p>decimal（总共的位数，小数的位数），是准确的数字</p>
+<h2 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h2><ul>
+<li>BLOB：二进制字符串</li>
+<li>VARCHAR：</li>
+</ul>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>TIMESTAMP：2038年，推荐使用DATETIME</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240729140215489.png" alt="image-20240729140215489"></p>
+<h1 id="权限校验流程"><a href="#权限校验流程" class="headerlink" title="权限校验流程"></a>权限校验流程</h1><p><strong>全局权限</strong>：检查 <code>mysql.user</code> 表中的全局权限。</p>
+<p><strong>数据库级权限</strong>：如果全局权限不足，检查 <code>mysql.db</code> 表中的数据库级权限。</p>
+<p><strong>表级权限</strong>：如果数据库级权限不足，检查 <code>mysql.tables_priv</code> 表中的表级权限。</p>
+<p><strong>列级权限</strong>：如果表级权限不足，检查 <code>mysql.columns_priv</code> 表中的列级权限。</p>
+<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED <span class="keyword">BY</span> &quot;password&quot;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span>, <span class="keyword">insert</span>, <span class="keyword">update</span> <span class="keyword">on</span> database_name.table_name <span class="keyword">to</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除权限"><a href="#删除权限" class="headerlink" title="删除权限"></a>删除权限</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> database_name.table_name <span class="keyword">to</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240729141849229.png" alt="image-20240729141849229"></p>
+<h2 id="权限安全"><a href="#权限安全" class="headerlink" title="权限安全"></a>权限安全</h2><p>密码：</p>
+<ul>
+<li>16个字符，大小写字母+数字，字母开头</li>
+</ul>
+<h1 id="show"><a href="#show" class="headerlink" title="show"></a>show</h1><h2 id="show-create"><a href="#show-create" class="headerlink" title="show create"></a>show create</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> table1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> database database1;</span><br></pre></td></tr></table></figure>
+
+<h2 id="show-table-status"><a href="#show-table-status" class="headerlink" title="show table status"></a>show table status</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">table</span> status likef <span class="string">&#x27;table1&#x27;</span>\G</span><br></pre></td></tr></table></figure>
+
+<p><code>\G</code>纵向显示</p>
+<h2 id="show-index"><a href="#show-index" class="headerlink" title="show index"></a>show index</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> index <span class="keyword">from</span> table1\G</span><br></pre></td></tr></table></figure>
+
+<h2 id="show-grants"><a href="#show-grants" class="headerlink" title="show grants"></a>show grants</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> grants <span class="keyword">for</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>\G</span><br></pre></td></tr></table></figure>
+
+<h2 id="show-processlist"><a href="#show-processlist" class="headerlink" title="show processlist"></a>show processlist</h2><p>查看当前连接的用户以及执行SQL（会影响性能）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> processlist\G</span><br></pre></td></tr></table></figure>
+
+<p>没有full时，如果结果过长只会打印部分</p>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>用于修改服务器的会话变量或全局变量</p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><h2 id="库表"><a href="#库表" class="headerlink" title="库表"></a>库表</h2><ol>
+<li>库名、表名必须使用小写字母，并采用下划线分割。</li>
+<li>库名、表名禁止超过32个字符。</li>
+<li>库名、表名必须见名知意。命名与业务、产品线等相关联。</li>
+<li>库名、表名禁止使用MySQL保留字。（保留字列表见官方网站）</li>
+<li>临时库、表名必须以tmp为前缀，并以日期为后缀。例如tmp_test01_20130704.</li>
+<li>备份库、表必须以bak为前缀，并以日期为后缀。例如bak_test01_20130704。</li>
+</ol>
+<h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><ol>
+<li>字段名必须使用小写字母，并采用下划线分割，禁止驼峰式命名</li>
+<li>字段名禁止超过32个字符。</li>
+<li>字段名必须见名知意。命名与业务、产品线等相关联。</li>
+<li>字段名禁止使用MySQL保留字。（保留字列表见官方网站）</li>
+</ol>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ol>
+<li>索引名必须全部使用小写字母，并采用下划线分割，禁用驼峰式。</li>
+<li>非唯一索引按照“idx_字段名称”进用行命名。例如idx_age_name.</li>
+<li>唯一索引按照“uniq_字段名称”进用行命名。例如uniq_age_name.</li>
+<li>组合索引建议包含所有字段名，过长的字段名可以采用缩写形式。例如idx_age_name_add.</li>
+</ol>
+<h2 id="业务命名规范"><a href="#业务命名规范" class="headerlink" title="业务命名规范"></a>业务命名规范</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240729144537517.png" alt="image-20240729144537517"></p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240729144700934.png" alt="image-20240729144700934"></p>
+<h1 id="基础规范"><a href="#基础规范" class="headerlink" title="基础规范"></a>基础规范</h1><ol>
+<li>使用 INNODB 存储引擎并且使用业务不相关的自增 ID 作为主键。</li>
+<li>表字符集使用 UTF8MB4 字符集。</li>
+<li>所有表、字段都需要添加注释。推荐采用英文标点，避免出现乱码。</li>
+<li>禁止在数据库中存储图片、文件等大数据。</li>
+<li>每张表数据量建议控制在 5000 万以内。禁止在线上做数据库压力测试。</li>
+<li>禁止从测试、开发环境直连数据库。</li>
+<li>不能使用存储过程、触发器等PLSQL</li>
+</ol>
+<p>date类型不让用</p>
+<h1 id="索引规范"><a href="#索引规范" class="headerlink" title="索引规范"></a>索引规范</h1><ol>
+<li>单张表中索引数量不超过5个。</li>
+<li>单个索引中的字段数不超过5个。</li>
+<li>索引名必须全部使用小写。</li>
+<li>组合索引建议包含所有字段名，过长的字段名可以采用缩写形式。例如<br>idx_age_name_add.</li>
+<li>表必须有主键，推荐使用unsigned自增列作为主键。</li>
+<li>唯一键由3个以下字段组成，并且字段都是整形时，可使用唯一键作为主<br>键。其他情况下，建议使用自增列或发号器作主键。</li>
+<li>禁止使用外键。</li>
+<li>禁止冗余索引</li>
+<li>联表查询时join列的数据类型必须相同，并且要建立索引。</li>
+<li>不在低基数列上建立索引，例如“性别”。</li>
+<li>选择区分度大的列建立索引。组合索引中，区分度大的字段放在最前。</li>
+<li>对字符串使用前缀索引，前缀索引长度建议不超过8个字符，需要根据业务实际需求<br>确定。</li>
+<li>不对过长的VARCHAR字段建立索引。建议优先考虑前缀索引，或添加CRC32或<br>MD5伪列并建立索引。？？？</li>
+<li>合理创建联合索引，(a,b,c)相当于(a)、(a,b)、(a,b,c).</li>
+<li>合理使用覆盖索引减少IO,避免排序。</li>
+<li>order by后面的字段尽量也要放在索引之中</li>
+</ol>
+<h1 id="字符集规范"><a href="#字符集规范" class="headerlink" title="字符集规范"></a>字符集规范</h1><ol>
+<li>同一个实例的库表字符集必须一致，JON字段字符集必须一致</li>
+<li>禁止在字段级别设置字符集</li>
+<li>字符集更改，<code>alter table t1 convert to charset utf</code></li>
+</ol>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li>如何存储IPV4&#x2F;IPV6：unsinged int 存储IP地址</li>
+<li>INT(1)：1表示显示字符宽度，非存储长度</li>
+</ul>
+<h1 id="库表设计"><a href="#库表设计" class="headerlink" title="库表设计"></a>库表设计</h1><ol>
+<li>将大字段、访问频率低的字段拆分到单独的表中存储，分离冷热数据</li>
+<li>表的默认字符集指定UTF8MB4（特殊需求除外），无须指定排序规则</li>
+<li>主键用整数类型，并且字段名称用id,使用AUTO INCREMENT数据类，并指定UNSIGNED</li>
+</ol>
+<h1 id="分表策略"><a href="#分表策略" class="headerlink" title="分表策略"></a>分表策略</h1><ol>
+<li>推荐使用HASH进行散表，表名后缀使用十进制数，数字必须从0开始</li>
+<li>按日期时间分表需符合YYYYMMHH格式，例如2017011601。年份必须用4位数字表示。例如按日散表user_20170209、按月散表user_201702</li>
+<li>采用合适的分库分表策略。例如千库十表、十库百表等</li>
+</ol>
+<h1 id="库表禁止使用项"><a href="#库表禁止使用项" class="headerlink" title="库表禁止使用项"></a>库表禁止使用项</h1><ol>
+<li>禁止以非字母开头命名表名及库名</li>
+<li>禁止使用分区表</li>
+</ol>
+<h1 id="字段设计"><a href="#字段设计" class="headerlink" title="字段设计"></a>字段设计</h1><ol>
+<li>建议使用UNSIGNED存储非负数值</li>
+<li>所有字段均定义为NOT NULL</li>
+<li>用DECIMAL代替FLOAT和DOUBLE存储精确浮点数。例如与货币、金融相关<br>的数据</li>
+<li>区分使用TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT数据类型</li>
+<li>使用VARBINARY:存储大小写敏感的变长字符串或二进制内容</li>
+</ol>
+<h1 id="字段禁止使用项"><a href="#字段禁止使用项" class="headerlink" title="字段禁止使用项"></a>字段禁止使用项</h1><ol>
+<li>建议尽可能不使用ENUM类型替代TINYINT</li>
+<li>建议尽可能不使用TEXT、BLOB类型（行溢出）</li>
+</ol>
+<h1 id="用不到索引"><a href="#用不到索引" class="headerlink" title="用不到索引"></a>用不到索引</h1><ul>
+<li>否定条件：!&#x3D;， not in ，not exists</li>
+<li>join中连接字段类型&#x2F;字符集不一致</li>
+</ul>
+<h1 id="GTID"><a href="#GTID" class="headerlink" title="GTID"></a>GTID</h1><p>server_id+transaction_id</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>简化故障转移</li>
+<li>简化日志管理</li>
+</ul>
+<h1 id="避免bad-sql"><a href="#避免bad-sql" class="headerlink" title="避免bad sql"></a>避免bad sql</h1><ul>
+<li><p>delete from改成 truncate table</p>
+</li>
+<li><p>select&#x2F;update范围大，改成分段做，一定要有索引可走</p>
+</li>
+<li><p>避免子查询（性能太差，可读性太差）</p>
+</li>
+<li><p>禁止select *</p>
+</li>
+<li><p>避免出现大事务（容易出现锁等待超时）</p>
+</li>
+<li><p>事务里面不能夹杂RPC(会出现数据不一致情况)</p>
+</li>
+<li><p>Spring 事务传播级别为PORPAGATION_REQUIRES_NEW时，子事务不能操作主事务锁住的记录</p>
+</li>
+<li><p>增删改查数据量较大时，要和DBA协商</p>
+</li>
+<li><p>统计信息类SQL一定要离线库跑</p>
+</li>
+</ul>
+<h1 id="半同步复制"><a href="#半同步复制" class="headerlink" title="半同步复制"></a>半同步复制</h1><p>主库将binlog发送给所有配置为半同步复制的从库。接收到至少一个从库的ack后，才会返回客户端确认事务提交成功</p>
+<h1 id="MySQL集群架构"><a href="#MySQL集群架构" class="headerlink" title="MySQL集群架构"></a>MySQL集群架构</h1><h2 id="3M架构"><a href="#3M架构" class="headerlink" title="3M架构"></a>3M架构</h2><p>应用程序通过VIP连接</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222938002.png" alt="image-20240730222938002"></p>
+<p>缺点：不能跨机房（VIP），不能做多线程复制，moniter单点</p>
+<h2 id="qmha"><a href="#qmha" class="headerlink" title="qmha"></a>qmha</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222920715.png" alt="image-20240730222920715"></p>
+<h2 id="PXC架构"><a href="#PXC架构" class="headerlink" title="PXC架构"></a>PXC架构</h2><p>节点对等，多写。namespace，</p>
+<p>如果同一个集群节点多了，会影响性能</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240730222330013.png" alt="image-20240730222330013"></p>
+<p>切换更流畅</p>
+<h1 id="pt-osc"><a href="#pt-osc" class="headerlink" title="pt-osc"></a>pt-osc</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/29/Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -842,188 +1231,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/19/%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%8C%E6%B6%88%E8%B4%B9%E8%80%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/19/%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%8C%E6%B6%88%E8%B4%B9%E8%80%85/" class="post-title-link" itemprop="url">生产者，消费者</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-19 17:09:46 / Modified: 17:16:59" itemprop="dateCreated datePublished" datetime="2024-07-19T17:09:46+08:00">2024-07-19</time>
-            </span>
-
-          
-            <span id="/2024/07/19/%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%8C%E6%B6%88%E8%B4%B9%E8%80%85/" class="post-meta-item leancloud_visitors" data-flag-title="生产者，消费者" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/19/%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%8C%E6%B6%88%E8%B4%B9%E8%80%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/19/%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%8C%E6%B6%88%E8%B4%B9%E8%80%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="生产者注意事项"><a href="#生产者注意事项" class="headerlink" title="生产者注意事项"></a>生产者注意事项</h2><ol>
-<li>批量发送</li>
-<li>ack</li>
-<li>重试</li>
-<li>幂等性（钱，增&#x2F;改）</li>
-<li>压缩</li>
-</ol>
-<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><ol>
-<li>偏移量</li>
-<li>错误处理</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/19/Maven/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/19/Maven/" class="post-title-link" itemprop="url">Maven</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-19 16:34:00 / Modified: 19:16:36" itemprop="dateCreated datePublished" datetime="2024-07-19T16:34:00+08:00">2024-07-19</time>
-            </span>
-
-          
-            <span id="/2024/07/19/Maven/" class="post-meta-item leancloud_visitors" data-flag-title="Maven" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/19/Maven/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/19/Maven/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>maven版本 3.3.9</p>
-<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>SNAPSHOT：不稳定，用于开发</p>
-<p>RELEASE：正式版本</p>
-<p>PRE：灰度版本</p>
-<h2 id="环境-profile"><a href="#环境-profile" class="headerlink" title="环境(profile)"></a>环境(profile)</h2><p>dev </p>
-<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><p>dependecyMangement进行显式管理</p>
-<h2 id="如何写好pom"><a href="#如何写好pom" class="headerlink" title="如何写好pom"></a>如何写好pom</h2><ul>
-<li>相关联的多个包版本一致，使用一个变量定义</li>
-<li>直接依赖的包要显式引入，不能间接引入。</li>
-</ul>
-<h1 id="父子工程"><a href="#父子工程" class="headerlink" title="父子工程"></a>父子工程</h1><ul>
-<li>父pom只规定版本，不进行引入。子pom只引入，不规定版本</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1093,7 +1300,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

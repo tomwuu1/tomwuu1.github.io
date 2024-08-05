@@ -20,16 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="插件：在SQL语句的执行中进行拦截。 配置Handler：可以自定义类型处理器 Environments：可以将SQL映射应用于多个数据库 settings：全局的设置 XML映射器动态SQL标签标签：可以自动去掉多余的and&#x2F;or 注意点 一级缓存和二级缓存屏蔽（分布式） 用标记判断条件，放到、里面（有转移字符的） 如判断不是String类型，不要加!&#x3D;’’的条件，否则判断">
+  <meta name="description" content="插件：在SQL语句的执行中进行拦截。 配置Handler：可以自定义类型处理器 Environments：可以将SQL映射应用于多个数据库 settings：全局的设置 XML映射器动态SQL标签标签：可以自动去掉多余的and&#x2F;or &lt;bind&gt;动态绑定值 注意点 一级缓存和二级缓存屏蔽（分布式） 用标记判断条件，放到、里面（有转移字符的） 如判断不是String类型，不要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis">
 <meta property="og:url" content="http://example.com/2024/07/31/MyBatis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="插件：在SQL语句的执行中进行拦截。 配置Handler：可以自定义类型处理器 Environments：可以将SQL映射应用于多个数据库 settings：全局的设置 XML映射器动态SQL标签标签：可以自动去掉多余的and&#x2F;or 注意点 一级缓存和二级缓存屏蔽（分布式） 用标记判断条件，放到、里面（有转移字符的） 如判断不是String类型，不要加!&#x3D;’’的条件，否则判断">
+<meta property="og:description" content="插件：在SQL语句的执行中进行拦截。 配置Handler：可以自定义类型处理器 Environments：可以将SQL映射应用于多个数据库 settings：全局的设置 XML映射器动态SQL标签标签：可以自动去掉多余的and&#x2F;or &lt;bind&gt;动态绑定值 注意点 一级缓存和二级缓存屏蔽（分布式） 用标记判断条件，放到、里面（有转移字符的） 如判断不是String类型，不要">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/mybatis-y-arch-1.png">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240805174537784.png">
 <meta property="article:published_time" content="2024-07-31T06:01:48.000Z">
-<meta property="article:modified_time" content="2024-08-01T12:58:03.792Z">
+<meta property="article:modified_time" content="2024-08-05T09:45:41.441Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/mybatis-y-arch-1.png">
@@ -182,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-01 20:58:03" itemprop="dateModified" datetime="2024-08-01T20:58:03+08:00">2024-08-01</time>
+                <time title="Modified: 2024-08-05 17:45:41" itemprop="dateModified" datetime="2024-08-05T17:45:41+08:00">2024-08-05</time>
               </span>
 
           
@@ -223,6 +224,7 @@
 <p>Environments：可以将SQL映射应用于多个数据库</p>
 <p>settings：全局的设置</p>
 <h1 id="XML映射器"><a href="#XML映射器" class="headerlink" title="XML映射器"></a>XML映射器</h1><h1 id="动态SQL标签"><a href="#动态SQL标签" class="headerlink" title="动态SQL标签"></a>动态SQL标签</h1><p><where>标签：可以自动去掉多余的and&#x2F;or</p>
+<p><code>&lt;bind&gt;</code>动态绑定值</p>
 <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
 <li>一级缓存和二级缓存屏蔽（分布式）</li>
 <li>用<![CDATA[ ]]>标记判断条件，放到<where>、<if>里面（有转移字符的）</li>
@@ -232,6 +234,8 @@
 <li>定义Bean属性用包装类型，防止查询、更新异常（会抛出异常）</li>
 <li></li>
 </ol>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><p>&lt; 用<code>&amp;lt;</code>代替</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240805174537784.png" alt="image-20240805174537784"></p>
 
     </div>
 
@@ -313,7 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML%E6%98%A0%E5%B0%84%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">XML映射器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81SQL%E6%A0%87%E7%AD%BE"><span class="nav-number">3.</span> <span class="nav-text">动态SQL标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">注意点</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML%E6%98%A0%E5%B0%84%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">XML映射器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81SQL%E6%A0%87%E7%AD%BE"><span class="nav-number">3.</span> <span class="nav-text">动态SQL标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">转义</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -327,7 +331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="事务 save 和update 异常往外抛合不合理。 小黄鸭调试法 接口隔离读写分离，扩展方向不一样，扩展上潜在的耦合。调用方，读和写都有要求才能调用，被动感知，按需设计sps，不同的使用方提供不同等级&#x2F;容量的服务，设计接口的时候，对于容量的需求。有哪些请求方，让它们看到应该看到。 读和写可能相互影响 读和读都可能要隔离，快照和当前读。 接口设计 自定义异常：快速定位问题，要有多个异常，">
+  <meta name="description" content="DEV：瀑布模式 DEV+OPS：敏捷开发模式 DEVOPS：敏捷+ 需求-&gt;功能点 分支命名：YYYYMMDD_DESC_JIRA编号	 测试环境：Noah noah软路由：提供基准的环境 自动化测试平台：灭霸，对于只读接口的验证。随机找一台线上机器，将流量分发一次，将线上机器和当前机器的结果做一次diff 自动化测试平台：qunit，对于写接口的验证 线上发布：Portal 链路分析：q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring作业课">
-<meta property="og:url" content="http://example.com/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/index.html">
+<meta property="og:title" content="DEVOPS">
+<meta property="og:url" content="http://example.com/2024/08/05/DEVOPS/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="事务 save 和update 异常往外抛合不合理。 小黄鸭调试法 接口隔离读写分离，扩展方向不一样，扩展上潜在的耦合。调用方，读和写都有要求才能调用，被动感知，按需设计sps，不同的使用方提供不同等级&#x2F;容量的服务，设计接口的时候，对于容量的需求。有哪些请求方，让它们看到应该看到。 读和写可能相互影响 读和读都可能要隔离，快照和当前读。 接口设计 自定义异常：快速定位问题，要有多个异常，">
+<meta property="og:description" content="DEV：瀑布模式 DEV+OPS：敏捷开发模式 DEVOPS：敏捷+ 需求-&gt;功能点 分支命名：YYYYMMDD_DESC_JIRA编号	 测试环境：Noah noah软路由：提供基准的环境 自动化测试平台：灭霸，对于只读接口的验证。随机找一台线上机器，将流量分发一次，将线上机器和当前机器的结果做一次diff 自动化测试平台：qunit，对于写接口的验证 线上发布：Portal 链路分析：q">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-01T12:48:23.000Z">
-<meta property="article:modified_time" content="2024-08-01T12:48:42.857Z">
+<meta property="article:published_time" content="2024-08-05T01:59:32.000Z">
+<meta property="article:modified_time" content="2024-08-05T03:11:11.675Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/">
+<link rel="canonical" href="http://example.com/2024/08/05/DEVOPS/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Spring作业课 | Hexo</title>
+  <title>DEVOPS | Hexo</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/05/DEVOPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Spring作业课
+          DEVOPS
         </h1>
 
         <div class="post-meta">
@@ -174,11 +174,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-08-01 20:48:23 / Modified: 20:48:42" itemprop="dateCreated datePublished" datetime="2024-08-01T20:48:23+08:00">2024-08-01</time>
+              <time title="Created: 2024-08-05 09:59:32 / Modified: 11:11:11" itemprop="dateCreated datePublished" datetime="2024-08-05T09:59:32+08:00">2024-08-05</time>
             </span>
 
           
-            <span id="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Spring作业课" title="Views">
+            <span id="/2024/08/05/DEVOPS/" class="post-meta-item leancloud_visitors" data-flag-title="DEVOPS" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -193,8 +193,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/01/Spring%E4%BD%9C%E4%B8%9A%E8%AF%BE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/08/05/DEVOPS/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/05/DEVOPS/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -209,38 +209,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>事务</p>
-<p>save 和update</p>
-<p>异常往外抛合不合理。</p>
-<p>小黄鸭调试法</p>
-<h1 id="接口隔离"><a href="#接口隔离" class="headerlink" title="接口隔离"></a>接口隔离</h1><p>读写分离，扩展方向不一样，扩展上潜在的耦合。调用方，读和写都有要求才能调用，被动感知，按需设计sps，不同的使用方提供不同等级&#x2F;容量的服务，设计接口的时候，对于容量的需求。有哪些请求方，让它们看到应该看到。</p>
-<p>读和写可能相互影响</p>
-<p>读和读都可能要隔离，快照和当前读。</p>
-<p>接口设计</p>
-<p>自定义异常：快速定位问题，要有多个异常，进行区分典型的业务场景和典型操作。</p>
-<p>api response：error message（具体的错误信息），对于使用方的考虑。vo，偶发的异常oom允许重试，重大的错误没法重试直接返回。</p>
-<p>切面的问题：无感知，方便，但不一定是正向影响。出现问题没法定位。什么时候完全无感知是好的：组件层面</p>
-<p>加try-catch：如果切面逻辑有问题，避免影响业务代码。</p>
-<p>计时：正常完成时间，异常完成时间，要根据业务流程的退出状态分别记录耗时。只计算正常完成的时间，异常退出要另做处理。获取System时间戳，有性能瓶颈（如何优雅的获取时间戳），缓存以毫秒作为记录。</p>
-<p>打印异常：信息冗余。？？？</p>
-<p>分层结构：下一层不应该感知到上一层的存在。</p>
-<p>圈复杂度：用于衡量一个程序的复杂程度的度量方法</p>
-<p>不建议超过两层缩进</p>
-<p>jsr303校验，通过BindingResult获取校验结果</p>
-<p>建表：create_time，update_time</p>
-<p>老数据库显式的关闭事务提交，</p>
-<p>嵌套事务（代码实践）</p>
-<p>事务范围：定义db Service再在db service上进行事务管理</p>
-<p>单测：盖亚</p>
-<p>vo&#x2F;dto&#x2F;do&#x2F;entity：</p>
-<p>vo：入参（也和页面相关）和出参</p>
-<p>rpm&#x2F;rmi</p>
-<p>dubbo：group业务集群做区分。</p>
-<p>provider和consumer都要调api</p>
-<p>rpc 传的对象要实现序列化。设置序列化ID，如果不设置没法进行兼容（默认-1），idea自动设置序列化ID </p>
-<p>api：里面不会引入lombok，api尽量不要引入其他包。api自定义的类里面，定义无参构造函数，避免有人加入了一个有参构造函数。</p>
-<p>序列化工具依赖无参构造方法</p>
-<p>dubbo provider异常不应该抛到外面去，包装返回类error message。如果能处理，可以抛出异常（比如参数有问题），放到方法签名里，dubbo的filter。</p>
+        <p>DEV：瀑布模式</p>
+<p>DEV+OPS：敏捷开发模式</p>
+<p>DEVOPS：敏捷+</p>
+<p>需求-&gt;功能点</p>
+<p>分支命名：YYYYMMDD_DESC_JIRA编号	</p>
+<p>测试环境：Noah</p>
+<p>noah软路由：提供基准的环境</p>
+<p>自动化测试平台：灭霸，对于只读接口的验证。随机找一台线上机器，将流量分发一次，将线上机器和当前机器的结果做一次diff</p>
+<p>自动化测试平台：qunit，对于写接口的验证</p>
+<p>线上发布：Portal</p>
+<p>链路分析：qtrace</p>
 
     </div>
 
@@ -256,12 +235,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/08/01/%E5%AE%89%E5%85%A8%E7%9F%A5%E8%AF%86/" rel="prev" title="安全知识">
-      <i class="fa fa-chevron-left"></i> 安全知识
+    <a href="/2024/08/02/%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/" rel="prev" title="日志服务">
+      <i class="fa fa-chevron-left"></i> 日志服务
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/08/02/JaCoCo/" rel="next" title="JaCoCo">
-      JaCoCo <i class="fa fa-chevron-right"></i>
+    <a href="/2024/08/05/DDD/" rel="next" title="DDD">
+      DDD <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -322,7 +301,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB"><span class="nav-number">1.</span> <span class="nav-text">接口隔离</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
