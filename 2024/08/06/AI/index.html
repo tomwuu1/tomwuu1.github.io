@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="RAGRAG（Retrieval-Augmented Generation） 向量数据库">
+  <meta name="description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文   检索模型 向量（将文档转成向量，来进行相似度比较）  向量数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI">
 <meta property="og:url" content="http://example.com/2024/08/06/AI/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RAGRAG（Retrieval-Augmented Generation） 向量数据库">
+<meta property="og:description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文   检索模型 向量（将文档转成向量，来进行相似度比较）  向量数据库">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-08-06T03:36:14.000Z">
-<meta property="article:modified_time" content="2024-08-06T03:41:56.512Z">
+<meta property="article:modified_time" content="2024-08-07T11:28:56.769Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
@@ -172,10 +172,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-08-06 11:36:14 / Modified: 11:41:56" itemprop="dateCreated datePublished" datetime="2024-08-06T11:36:14+08:00">2024-08-06</time>
+              <time title="Created: 2024-08-06 11:36:14" itemprop="dateCreated datePublished" datetime="2024-08-06T11:36:14+08:00">2024-08-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-07 19:28:56" itemprop="dateModified" datetime="2024-08-07T19:28:56+08:00">2024-08-07</time>
+              </span>
 
           
             <span id="/2024/08/06/AI/" class="post-meta-item leancloud_visitors" data-flag-title="AI" title="Views">
@@ -210,6 +216,15 @@
 
       
         <h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><p>RAG（Retrieval-Augmented Generation）</p>
+<ol>
+<li><p>检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。</p>
+</li>
+<li><p>生成阶段（Generation）：LLM检索到的信息作为上下文</p>
+</li>
+</ol>
+<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><ol>
+<li>向量（将文档转成向量，来进行相似度比较）</li>
+</ol>
 <h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1>
     </div>
 
@@ -229,8 +244,8 @@
       <i class="fa fa-chevron-left"></i> 需求分析-系统设计
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/08/06/Qunar%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7/" rel="next" title="Qunar运维工具">
-      Qunar运维工具 <i class="fa fa-chevron-right"></i>
+    <a href="/2024/08/06/Gaea/" rel="next" title="Gaea">
+      Gaea <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -291,7 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG"><span class="nav-number">1.</span> <span class="nav-text">RAG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">向量数据库</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG"><span class="nav-number">1.</span> <span class="nav-text">RAG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">检索模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">向量数据库</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -305,7 +320,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

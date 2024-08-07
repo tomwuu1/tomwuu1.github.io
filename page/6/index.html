@@ -145,6 +145,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/12/logback/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/12/logback/" class="post-title-link" itemprop="url">logback</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-07-12 13:16:38" itemprop="dateCreated datePublished" datetime="2024-07-12T13:16:38+08:00">2024-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-19 17:34:56" itemprop="dateModified" datetime="2024-07-19T17:34:56+08:00">2024-07-19</time>
+              </span>
+
+          
+            <span id="/2024/07/12/logback/" class="post-meta-item leancloud_visitors" data-flag-title="logback" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/12/logback/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/12/logback/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>由logger&#x2F;appender&#x2F;layout</p>
+<ul>
+<li>logger 产生日志</li>
+<li>appender 日志输出目的地</li>
+<li>layout将日志格式化</li>
+</ul>
+<p>有效日志级别：在程序运行过程中使用的日志级别阈值，小于这个级别的不会传给Appender</p>
+<h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1><ul>
+<li><p>logger的additivity属性为false：向上抛，避免重复记录</p>
+</li>
+<li><p>开启异步日志记录，避免日志记录影响业务</p>
+</li>
+<li><p>Warn&#x2F;error级别的日志建议打印入参和处理结果</p>
+</li>
+<li><p>日志保留超过两周</p>
+</li>
+</ul>
+<h1 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h1><ol>
+<li>TRACE</li>
+<li>DEBUG</li>
+<li>INFO</li>
+<li>WARN</li>
+<li>ERROR</li>
+</ol>
+<h1 id="logback中使用占位符拼接变量相较于字符串拼接的好处"><a href="#logback中使用占位符拼接变量相较于字符串拼接的好处" class="headerlink" title="logback中使用占位符拼接变量相较于字符串拼接的好处"></a>logback中使用占位符拼接变量相较于字符串拼接的好处</h1><ul>
+<li>如果输出的日志级别低于有效日志级别，用占位符的话就不会进行拼接。可读性更强</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/12/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,7 +517,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
