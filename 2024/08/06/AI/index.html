@@ -20,17 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文   检索模型 向量（将文档转成向量，来进行相似度比较）  向量数据库">
+  <meta name="description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文     首先，会从用户给定的文档、图片等资源中提取内容； 然后通过chunking（可以认为是将连续的文本分成一个个小块）进行切割，再使用embedding过程变成向量数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI">
 <meta property="og:url" content="http://example.com/2024/08/06/AI/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文   检索模型 向量（将文档转成向量，来进行相似度比较）  向量数据库">
+<meta property="og:description" content="RAGRAG（Retrieval-Augmented Generation）  检索阶段（Retrieval）：从一个大规模的知识库或文档集合中检索出相关信息。  生成阶段（Generation）：LLM检索到的信息作为上下文     首先，会从用户给定的文档、图片等资源中提取内容； 然后通过chunking（可以认为是将连续的文本分成一个个小块）进行切割，再使用embedding过程变成向量数据">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.luxiangdong.com/images/wanjue1/3.png">
 <meta property="article:published_time" content="2024-08-06T03:36:14.000Z">
-<meta property="article:modified_time" content="2024-08-07T11:28:56.769Z">
+<meta property="article:modified_time" content="2024-08-09T10:11:04.224Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.luxiangdong.com/images/wanjue1/3.png">
 
 <link rel="canonical" href="http://example.com/2024/08/06/AI/">
 
@@ -180,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-07 19:28:56" itemprop="dateModified" datetime="2024-08-07T19:28:56+08:00">2024-08-07</time>
+                <time title="Modified: 2024-08-09 18:11:04" itemprop="dateModified" datetime="2024-08-09T18:11:04+08:00">2024-08-09</time>
               </span>
 
           
@@ -222,10 +224,27 @@
 <li><p>生成阶段（Generation）：LLM检索到的信息作为上下文</p>
 </li>
 </ol>
-<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><ol>
-<li>向量（将文档转成向量，来进行相似度比较）</li>
+<p><img src="https://www.luxiangdong.com/images/wanjue1/3.png" alt="3"></p>
+<ul>
+<li>首先，会从用户给定的文档、图片等资源中提取内容；</li>
+<li>然后通过chunking（可以认为是将连续的文本分成一个个小块）进行切割，再使用embedding过程变成向量数据存入向量数据库或elasticsearch等载体中。另外就是结合这些非结构化文件所附带的元数据（时间、文件名、作者、副标题、文件类型等）对进行索引（高级索引可以是树结构、图结构等）创建；</li>
+<li>当RAG接受到用户的提问内容，会先将内容通过embedding转化为向量数据，然后和在前面建立的索引中进行相似度匹配，比如从百万的chunks中找出匹配度较高的100个。然后再将这100个chunk进行更耗时也更精准的重排序（使用交叉熵校验的Rerank算法），将最相关的top3结果找到；</li>
+<li>最后RAG会将用户的问题、经过技术处理的top3的chunks，还有prompt，一起送入大语言模型，让它生成最终的答案。</li>
+</ul>
+<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><p>将文档转成向量，来进行相似度比较</p>
+<ol>
+<li>基于密集向量的检索模型：DPR（通过对比学习进行训练，针对问答任务进行了优化），BERT-based Models （能够生成上下文感知的嵌入，在处理复杂查询时表现优异）</li>
+<li>基于稀疏向量的检索模型：利用文档中关键词的稀疏表示进行检索，典型的如TF-IDF（通过计算术语在文档和整个语料库中的频率来表示文档，适用于规模小的文本库）和BM25（基于词频和逆文档率）</li>
+<li>混合模型（es最近的版本新的特性）</li>
 </ol>
-<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1>
+<h1 id="fun-call"><a href="#fun-call" class="headerlink" title="fun call"></a>fun call</h1><p>AI模型解析用户输入，识别出需要调用的函数</p>
+<h1 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h1><p>知识图谱是一种数据结构，通常以节点和边的形式表示实体及其关系。每个节点代表一个实体（如人、地点、事物等），而边则表示实体之间的关系（如“工作于”，“位于”等）。</p>
+<p>目的: 知识图谱的目的是以结构化的方式存储和管理知识，允许通过实体及其关系进行复杂的查询和推理。</p>
+<p>技术实现: 知识图谱通常基于图数据库实现，支持语义查询，可以处理复杂的关联查询和推理。</p>
+<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1><p>就是一个向量和一个chunk</p>
+<h2 id="metadata"><a href="#metadata" class="headerlink" title="metadata"></a>metadata</h2><p>document的元信息：名称、来源、上次更新日期、所有者或任何其他相关详细信息。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://torchv.com/blog/torchv-action-002/#%E6%A6%82%E8%BF%B0">https://torchv.com/blog/torchv-action-002/#%E6%A6%82%E8%BF%B0</a></p>
+
     </div>
 
     
@@ -306,7 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG"><span class="nav-number">1.</span> <span class="nav-text">RAG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">检索模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">向量数据库</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG"><span class="nav-number">1.</span> <span class="nav-text">RAG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">检索模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fun-call"><span class="nav-number">2.</span> <span class="nav-text">fun call</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="nav-number">3.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">向量数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#metadata"><span class="nav-number">4.1.</span> <span class="nav-text">metadata</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,7 +339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

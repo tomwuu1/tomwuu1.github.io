@@ -145,6 +145,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/09/LangChain4j/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/09/LangChain4j/" class="post-title-link" itemprop="url">LangChain4j</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-09 11:19:15 / Modified: 18:11:36" itemprop="dateCreated datePublished" datetime="2024-08-09T11:19:15+08:00">2024-08-09</time>
+            </span>
+
+          
+            <span id="/2024/08/09/LangChain4j/" class="post-meta-item leancloud_visitors" data-flag-title="LangChain4j" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/08/09/LangChain4j/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/09/LangChain4j/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h1><p>就是把之前的对话附上去，设定一个轮数的上限</p>
+<h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><h2 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-open-ai-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-pgvector<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.testcontainers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>postgresql<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.19.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-embeddings-all-minilm-l6-v2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="pgvector配置类"><a href="#pgvector配置类" class="headerlink" title="pgvector配置类"></a>pgvector配置类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> PostgreSQLContainer&lt;?&gt; postgreSQLContainer() &#123;</span><br><span class="line">    <span class="type">DockerImageName</span> <span class="variable">dockerImageName</span> <span class="operator">=</span> DockerImageName.parse(<span class="string">&quot;pgvector/pgvector:pg16&quot;</span>);</span><br><span class="line">    PostgreSQLContainer&lt;?&gt; postgreSQLContainer = <span class="keyword">new</span> <span class="title class_">PostgreSQLContainer</span>&lt;&gt;(dockerImageName);</span><br><span class="line">    postgreSQLContainer.start();</span><br><span class="line">    <span class="keyword">return</span> postgreSQLContainer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> EmbeddingStore&lt;TextSegment&gt; <span class="title function_">embeddingStore</span><span class="params">(PostgreSQLContainer&lt;?&gt; postgreSQLContainer)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> PgVectorEmbeddingStore.builder()</span><br><span class="line">            .host(postgreSQLContainer.getHost())</span><br><span class="line">            .port(postgreSQLContainer.getFirstMappedPort())</span><br><span class="line">            .database(postgreSQLContainer.getDatabaseName())</span><br><span class="line">            .user(postgreSQLContainer.getUsername())</span><br><span class="line">            .password(postgreSQLContainer.getPassword())</span><br><span class="line">            .table(<span class="string">&quot;test&quot;</span>)</span><br><span class="line">            .dimension(<span class="number">384</span>)</span><br><span class="line">            .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档转换向量"><a href="#文档转换向量" class="headerlink" title="文档转换向量"></a>文档转换向量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加文档内容到Embedding Store</span></span><br><span class="line"><span class="type">TextSegment</span> <span class="variable">segment1</span> <span class="operator">=</span> TextSegment.from(Document.txt1);</span><br><span class="line"><span class="type">Embedding</span> <span class="variable">embedding1</span> <span class="operator">=</span> embeddingModel.embed(segment1).content();</span><br><span class="line">embeddingStore.add(embedding1, segment1);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">EmbeddingModel</span> <span class="variable">embeddingModel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AllMiniLmL6V2EmbeddingModel</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Embedding</span> <span class="variable">queryEmbedding</span> <span class="operator">=</span> embeddingModel.embed(message).content();</span><br><span class="line">List&lt;EmbeddingMatch&lt;TextSegment&gt;&gt; relevant = embeddingStore.findRelevant(queryEmbedding, <span class="number">1</span>);</span><br><span class="line">EmbeddingMatch&lt;TextSegment&gt; embeddingMatch = relevant.get(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">return</span> assistant.chat(embeddingMatch.embedded().text() + message);</span><br></pre></td></tr></table></figure>
+
+<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1><p>LangChain4j支持的向量数据库</p>
+<p><a target="_blank" rel="noopener" href="https://docs.langchain4j.dev/integrations/embedding-stores/">https://docs.langchain4j.dev/integrations/embedding-stores/</a></p>
+<h2 id="pgvector"><a href="#pgvector" class="headerlink" title="pgvector"></a>pgvector</h2><p>使用pgvector作为向量数据库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgvector-container -e POSTGRES_PASSWORD=mysecretpassword -d postgres:latest</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器</span></span><br><span class="line">docker exec -it pgvector-container bash</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y postgresql-server-dev-all gcc make git</span><br><span class="line">git clone https://github.com/pgvector/pgvector.git</span><br><span class="line">cd pgvector</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入docker的pg命令行</span></span><br><span class="line">docker exec -it pgvector-container psql -U postgres</span><br><span class="line">CREATE EXTENSION vector;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用于验证vector的安装</span></span><br><span class="line">SELECT * FROM pg_available_extensions WHERE name = &#x27;vector&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/08/checklist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -885,7 +978,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-07 19:28:56" itemprop="dateModified" datetime="2024-08-07T19:28:56+08:00">2024-08-07</time>
+                <time title="Modified: 2024-08-09 18:11:04" itemprop="dateModified" datetime="2024-08-09T18:11:04+08:00">2024-08-09</time>
               </span>
 
           
@@ -927,10 +1020,27 @@
 <li><p>生成阶段（Generation）：LLM检索到的信息作为上下文</p>
 </li>
 </ol>
-<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><ol>
-<li>向量（将文档转成向量，来进行相似度比较）</li>
+<p><img src="https://www.luxiangdong.com/images/wanjue1/3.png" alt="3"></p>
+<ul>
+<li>首先，会从用户给定的文档、图片等资源中提取内容；</li>
+<li>然后通过chunking（可以认为是将连续的文本分成一个个小块）进行切割，再使用embedding过程变成向量数据存入向量数据库或elasticsearch等载体中。另外就是结合这些非结构化文件所附带的元数据（时间、文件名、作者、副标题、文件类型等）对进行索引（高级索引可以是树结构、图结构等）创建；</li>
+<li>当RAG接受到用户的提问内容，会先将内容通过embedding转化为向量数据，然后和在前面建立的索引中进行相似度匹配，比如从百万的chunks中找出匹配度较高的100个。然后再将这100个chunk进行更耗时也更精准的重排序（使用交叉熵校验的Rerank算法），将最相关的top3结果找到；</li>
+<li>最后RAG会将用户的问题、经过技术处理的top3的chunks，还有prompt，一起送入大语言模型，让它生成最终的答案。</li>
+</ul>
+<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><p>将文档转成向量，来进行相似度比较</p>
+<ol>
+<li>基于密集向量的检索模型：DPR（通过对比学习进行训练，针对问答任务进行了优化），BERT-based Models （能够生成上下文感知的嵌入，在处理复杂查询时表现优异）</li>
+<li>基于稀疏向量的检索模型：利用文档中关键词的稀疏表示进行检索，典型的如TF-IDF（通过计算术语在文档和整个语料库中的频率来表示文档，适用于规模小的文本库）和BM25（基于词频和逆文档率）</li>
+<li>混合模型（es最近的版本新的特性）</li>
 </ol>
-<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1>
+<h1 id="fun-call"><a href="#fun-call" class="headerlink" title="fun call"></a>fun call</h1><p>AI模型解析用户输入，识别出需要调用的函数</p>
+<h1 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h1><p>知识图谱是一种数据结构，通常以节点和边的形式表示实体及其关系。每个节点代表一个实体（如人、地点、事物等），而边则表示实体之间的关系（如“工作于”，“位于”等）。</p>
+<p>目的: 知识图谱的目的是以结构化的方式存储和管理知识，允许通过实体及其关系进行复杂的查询和推理。</p>
+<p>技术实现: 知识图谱通常基于图数据库实现，支持语义查询，可以处理复杂的关联查询和推理。</p>
+<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1><p>就是一个向量和一个chunk</p>
+<h2 id="metadata"><a href="#metadata" class="headerlink" title="metadata"></a>metadata</h2><p>document的元信息：名称、来源、上次更新日期、所有者或任何其他相关详细信息。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://torchv.com/blog/torchv-action-002/#%E6%A6%82%E8%BF%B0">https://torchv.com/blog/torchv-action-002/#%E6%A6%82%E8%BF%B0</a></p>
+
       
     </div>
 
@@ -1038,88 +1148,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">问题与解决</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-06 10:09:47 / Modified: 10:31:33" itemprop="dateCreated datePublished" datetime="2024-08-06T10:09:47+08:00">2024-08-06</time>
-            </span>
-
-          
-            <span id="/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/" class="post-meta-item leancloud_visitors" data-flag-title="问题与解决" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
-<li>今天的作业在push之后，发现远程仓库出现了本地没有的文件，该怎么解决？尝试过合并远程分支，但是没有用。：查看当前分支的文件git ls-tree -r HEAD –name-only，结果发现IDEA出现了那个不需要的文件夹，我认为是IDEA没有正常的加载</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1189,7 +1217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
