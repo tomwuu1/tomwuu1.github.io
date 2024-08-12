@@ -145,6 +145,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/12/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-12 16:52:58 / Modified: 16:59:22" itemprop="dateCreated datePublished" datetime="2024-08-12T16:52:58+08:00">2024-08-12</time>
+            </span>
+
+          
+            <span id="/2024/08/12/%E7%AE%97%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="算法" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/08/12/%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/12/%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="T-digest"><a href="#T-digest" class="headerlink" title="T-digest"></a>T-digest</h1><p>核心思想：通过质心进行数据的合并</p>
+<p>质心：数字，权重。</p>
+<p>两个数据：10 20，得出的质心 [15, 2]</p>
+<p>逐个累积质心的权重，直到累计权重接近目标权重(根据分位数和总共数据个数计算)</p>
+<p>map-reduce操作，可以理解为几组数据分别通过t-digest算法处理，得出来的几组结果可以合并到一起，并集之后就可以得到这几组数据的整体分位数</p>
+<p>感兴趣的同学可以看下这个<br>github项目：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest">https://github.com/tdunning/t-digest</a><br>算法的论文：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf">https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/09/LangChain4j/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1055,99 +1140,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">需求分析-系统设计</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-06 10:17:20 / Modified: 21:37:21" itemprop="dateCreated datePublished" datetime="2024-08-06T10:17:20+08:00">2024-08-06</time>
-            </span>
-
-          
-            <span id="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="需求分析-系统设计" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>需求idea -&gt; 需求RDQA -&gt; 需求估时 -&gt; 需求FR</p>
-<p>OTA：Online Travel Agency</p>
-<p>UI（User Interface，用户界面）和UE（User Experience，用户体验）</p>
-<p>需求分析：分析，记录，确认，管理</p>
-<h1 id="RDQA"><a href="#RDQA" class="headerlink" title="RDQA"></a>RDQA</h1><ol>
-<li>原型图</li>
-<li>监控、埋点和验证方案</li>
-<li>新旧逻辑处理</li>
-<li>性能和安全考虑</li>
-</ol>
-<h1 id="需求估时"><a href="#需求估时" class="headerlink" title="需求估时"></a>需求估时</h1><ul>
-<li>联调和自测</li>
-<li>测试和验证方案</li>
-</ul>
-<h1 id="概要设计模版"><a href="#概要设计模版" class="headerlink" title="概要设计模版"></a>概要设计模版</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1217,7 +1209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

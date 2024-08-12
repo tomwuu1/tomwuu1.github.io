@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2024/page/3/index.html">
+  <meta name="description" content="T-digest核心思想：通过质心进行数据的合并 质心：数字，权重。 两个数据：10 20，得出的质心 [15, 2] 逐个累积质心的权重，直到累计权重接近目标权重(根据分位数和总共数据个数计算) map-reduce操作，可以理解为几组数据分别通过t-digest算法处理，得出来的几组结果可以合并到一起，并集之后就可以得到这几组数据的整体分位数 感兴趣的同学可以看下这个github项目：http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="http://example.com/2024/08/12/%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="T-digest核心思想：通过质心进行数据的合并 质心：数字，权重。 两个数据：10 20，得出的质心 [15, 2] 逐个累积质心的权重，直到累计权重接近目标权重(根据分位数和总共数据个数计算) map-reduce操作，可以理解为几组数据分别通过t-digest算法处理，得出来的几组结果可以合并到一起，并集之后就可以得到这几组数据的整体分位数 感兴趣的同学可以看下这个github项目：http">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-12T08:52:58.000Z">
+<meta property="article:modified_time" content="2024-08-12T08:59:22.445Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2024/page/3/">
+<link rel="canonical" href="http://example.com/2024/08/12/%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Hexo</title>
+  <title>算法 | Hexo</title>
   
 
 
@@ -139,240 +143,110 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-12 16:52:58 / Modified: 16:59:22" itemprop="dateCreated datePublished" datetime="2024-08-12T16:52:58+08:00">2024-08-12</time>
+            </span>
+
+          
+            <span id="/2024/08/12/%E7%AE%97%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="算法" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">Nice! 58 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/08/12/%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/12/%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-31T14:01:48+08:00"
-              content="2024-07-31">
-          07-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/31/MyBatis/" itemprop="url">
-            <span itemprop="name">MyBatis</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-31T13:14:49+08:00"
-              content="2024-07-31">
-          07-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E3%80%8A%E9%9D%9E%E5%AF%B9%E7%A7%B0%E9%A3%8E%E9%99%A9%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">《非对称风险》读书笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-30T10:02:14+08:00"
-              content="2024-07-30">
-          07-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/30/PostgreSQL/" itemprop="url">
-            <span itemprop="name">PostgreSQL</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-29T11:22:37+08:00"
-              content="2024-07-29">
-          07-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/29/MySQL/" itemprop="url">
-            <span itemprop="name">MySQL</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-29T10:22:04+08:00"
-              content="2024-07-29">
-          07-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/29/Git/" itemprop="url">
-            <span itemprop="name">Git</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-26T23:34:17+08:00"
-              content="2024-07-26">
-          07-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/26/JSR303%E6%A0%A1%E9%AA%8C/" itemprop="url">
-            <span itemprop="name">JSR303校验</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-26T23:27:20+08:00"
-              content="2024-07-26">
-          07-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/26/spring%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" itemprop="url">
-            <span itemprop="name">spring项目规范</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-25T10:13:43+08:00"
-              content="2024-07-25">
-          07-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/25/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/" itemprop="url">
-            <span itemprop="name">基础组件</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-24T20:32:40+08:00"
-              content="2024-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/24/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%B7%A5%E5%85%B7/" itemprop="url">
-            <span itemprop="name">定时任务工具</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-22T17:18:43+08:00"
-              content="2024-07-22">
-          07-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/dubbo/" itemprop="url">
-            <span itemprop="name">dubbo</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="T-digest"><a href="#T-digest" class="headerlink" title="T-digest"></a>T-digest</h1><p>核心思想：通过质心进行数据的合并</p>
+<p>质心：数字，权重。</p>
+<p>两个数据：10 20，得出的质心 [15, 2]</p>
+<p>逐个累积质心的权重，直到累计权重接近目标权重(根据分位数和总共数据个数计算)</p>
+<p>map-reduce操作，可以理解为几组数据分别通过t-digest算法处理，得出来的几组结果可以合并到一起，并集之后就可以得到这几组数据的整体分位数</p>
+<p>感兴趣的同学可以看下这个<br>github项目：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest">https://github.com/tdunning/t-digest</a><br>算法的论文：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf">https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf</a></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/08/09/LangChain4j/" rel="prev" title="LangChain4j">
+      <i class="fa fa-chevron-left"></i> LangChain4j
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2024/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/2024/">1</a><a class="page-number" href="/archives/2024/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2024/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2024/page/6/">6</a><a class="extend next" rel="next" href="/archives/2024/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -419,6 +293,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#T-digest"><span class="nav-number">1.</span> <span class="nav-text">T-digest</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
