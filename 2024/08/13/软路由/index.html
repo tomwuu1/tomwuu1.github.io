@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="IOC职责边界，不关注不需要关注的事情 @Configuration怎么生效的：生成代理 看背景，看特性，看重要特性 容器问题：怎么统计一个容器的Bean个数，特殊的Bean怎么统计 怎么统计一个容器的Bean个数，特殊的Bean怎么统计：getBeanDefinitionCount：所有的，getBeansOfType特定类型的。 扩展 针对某一个Bean 容器级别  AOP 连接点（类，方法，">
+  <meta name="description" content="测试环境 &#x3D; 应用+数据存储+中间件+负载均衡+测试工具 测试环境难点 系统复制，需要理清服务的依赖关系，部署顺序 申请资源，开通权限繁琐 环境冲突 环境维护（代码更改，数据库，配置）  Noah 配置管理：提供环境模版来定义整个环境所需的资源信息，软件信息，数据信息，依赖信息 自动更新：解决环境维护问题 并行测试：用环境模版生成多套相同的环境，实现资源的隔离 一键生成：解决流程繁琐的问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring">
-<meta property="og:url" content="http://example.com/2024/07/17/Spring/index.html">
+<meta property="og:title" content="软路由">
+<meta property="og:url" content="http://example.com/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="IOC职责边界，不关注不需要关注的事情 @Configuration怎么生效的：生成代理 看背景，看特性，看重要特性 容器问题：怎么统计一个容器的Bean个数，特殊的Bean怎么统计 怎么统计一个容器的Bean个数，特殊的Bean怎么统计：getBeanDefinitionCount：所有的，getBeansOfType特定类型的。 扩展 针对某一个Bean 容器级别  AOP 连接点（类，方法，">
+<meta property="og:description" content="测试环境 &#x3D; 应用+数据存储+中间件+负载均衡+测试工具 测试环境难点 系统复制，需要理清服务的依赖关系，部署顺序 申请资源，开通权限繁琐 环境冲突 环境维护（代码更改，数据库，配置）  Noah 配置管理：提供环境模版来定义整个环境所需的资源信息，软件信息，数据信息，依赖信息 自动更新：解决环境维护问题 并行测试：用环境模版生成多套相同的环境，实现资源的隔离 一键生成：解决流程繁琐的问">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-17T02:40:26.000Z">
-<meta property="article:modified_time" content="2024-07-23T10:59:26.046Z">
+<meta property="og:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-2024-8-9_14-56-8.png">
+<meta property="article:published_time" content="2024-08-13T01:53:53.000Z">
+<meta property="article:modified_time" content="2024-08-13T02:47:06.334Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-2024-8-9_14-56-8.png">
 
-<link rel="canonical" href="http://example.com/2024/07/17/Spring/">
+<link rel="canonical" href="http://example.com/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>Spring | Hexo</title>
+  <title>软路由 | Hexo</title>
   
 
 
@@ -150,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/17/Spring/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Spring
+          软路由
         </h1>
 
         <div class="post-meta">
@@ -172,19 +174,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2024-07-17 10:40:26" itemprop="dateCreated datePublished" datetime="2024-07-17T10:40:26+08:00">2024-07-17</time>
+              <time title="Created: 2024-08-13 09:53:53 / Modified: 10:47:06" itemprop="dateCreated datePublished" datetime="2024-08-13T09:53:53+08:00">2024-08-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-23 18:59:26" itemprop="dateModified" datetime="2024-07-23T18:59:26+08:00">2024-07-23</time>
-              </span>
 
           
-            <span id="/2024/07/17/Spring/" class="post-meta-item leancloud_visitors" data-flag-title="Spring" title="Views">
+            <span id="/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/" class="post-meta-item leancloud_visitors" data-flag-title="软路由" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -199,8 +195,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/07/17/Spring/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/17/Spring/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/13/%E8%BD%AF%E8%B7%AF%E7%94%B1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -215,29 +211,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h1><p>职责边界，不关注不需要关注的事情</p>
-<p>@Configuration怎么生效的：生成代理</p>
-<p>看背景，看特性，看重要特性</p>
-<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>问题：怎么统计一个容器的Bean个数，特殊的Bean怎么统计</p>
-<p>怎么统计一个容器的Bean个数，特殊的Bean怎么统计：getBeanDefinitionCount：所有的，getBeansOfType特定类型的。</p>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
-<li>针对某一个Bean</li>
-<li>容器级别</li>
+        <p>测试环境 &#x3D; 应用+数据存储+中间件+负载均衡+测试工具</p>
+<h1 id="测试环境难点"><a href="#测试环境难点" class="headerlink" title="测试环境难点"></a>测试环境难点</h1><ol>
+<li>系统复制，需要理清服务的依赖关系，部署顺序</li>
+<li>申请资源，开通权限繁琐</li>
+<li>环境冲突</li>
+<li>环境维护（代码更改，数据库，配置）</li>
 </ol>
-<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><ul>
-<li>连接点（类，方法，接口）</li>
-<li>切点：实际的</li>
-<li>advice：增强</li>
-<li>weaving：把代码加入的过程</li>
-</ul>
-<h1 id="父子容器"><a href="#父子容器" class="headerlink" title="父子容器"></a>父子容器</h1><p>父容器中的 Bean 可以被子容器访问，但子容器中的 Bean 不能被父容器访问。</p>
-<h1 id="两种启动方法的差异"><a href="#两种启动方法的差异" class="headerlink" title="两种启动方法的差异"></a>两种启动方法的差异</h1><p>对于传统的大型企业应用，使用外部 Tomcat 服务器可能更合适</p>
-<h1 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h1><p>Service Provider Interface。</p>
-<p>框架定义服务接口，具体实现由第三方提供。</p>
-<p>Spring SPI&#x2F;Java SPI</p>
-<h1 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h1><p>无锁，全链路异步</p>
-<p>- </p>
-
+<h1 id="Noah"><a href="#Noah" class="headerlink" title="Noah"></a>Noah</h1><ol>
+<li>配置管理：提供环境模版来定义整个环境所需的资源信息，软件信息，数据信息，依赖信息</li>
+<li>自动更新：解决环境维护问题</li>
+<li>并行测试：用环境模版生成多套相同的环境，实现资源的隔离</li>
+<li>一键生成：解决流程繁琐的问题</li>
+</ol>
+<p>固定环境 -&gt; 云环境模版 -&gt;软路由环境</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-2024-8-9_14-56-8.png" alt="image-2024-8-9_14-56-8"></p>
+<p>1、创建业务模版、基准环境、软路由环境<br>2、流量染色（绑定请求与软路由环境）<br>3、请求后的测试与异常排查</p>
+<p>概念</p>
+<p>应用：Java，node工程</p>
+<p>环境变量：将应用的配置文件进行变量化</p>
+<h1 id="部署顺序："><a href="#部署顺序：" class="headerlink" title="部署顺序："></a>部署顺序：</h1>
     </div>
 
     
@@ -252,13 +245,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/16/%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/" rel="prev" title="图床设置">
-      <i class="fa fa-chevron-left"></i> 图床设置
+    <a href="/2024/08/12/%E6%B2%9F%E9%80%9A/" rel="prev" title="沟通">
+      <i class="fa fa-chevron-left"></i> 沟通
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/17/RT%EF%BC%8C%E5%B9%B6%E5%8F%91%E5%92%8CQPS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="next" title="RT，并发和QPS之间的关系">
-      RT，并发和QPS之间的关系 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -318,7 +308,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IOC"><span class="nav-number">1.</span> <span class="nav-text">IOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">3.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%88%B6%E5%AD%90%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">父子容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">5.</span> <span class="nav-text">两种启动方法的差异</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPI"><span class="nav-number">6.</span> <span class="nav-text">SPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-number">7.</span> <span class="nav-text">Spring WebFlux</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E9%9A%BE%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">测试环境难点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Noah"><span class="nav-number">2.</span> <span class="nav-text">Noah</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E9%A1%BA%E5%BA%8F%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">部署顺序：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
