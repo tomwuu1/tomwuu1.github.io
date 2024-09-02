@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="滚动发布 将新版本逐批发布到服务器上  优点：资源利用率高 缺点：回滚复杂 灰度发布主要是对于流量进行控制  选择一部分流量作为测试 通过监控和日志观察运行情况 如果表现良好可以逐步增加流量，直到覆盖全部  缺点：数据一致性问题 蓝绿发布维持两个环境，把所有的流量切到新的的环境。但是旧环境的数据库连接等是不关闭的。 优点：快速回滚 缺点：需要额外的资源">
+  <meta name="description" content="滚动发布 将新版本逐批发布到服务器上  优点：资源利用率高 缺点：回滚复杂 灰度发布主要是对于流量进行控制  选择一部分流量作为测试 通过监控和日志观察运行情况 如果表现良好可以逐步增加流量，直到覆盖全部  缺点：数据一致性问题 蓝绿发布维持两个环境，把所有的流量切到新的的环境。但是旧环境的数据库连接等是不关闭的。 优点：快速回滚 缺点：需要额外的资源 发布过程编译-&gt;部署 灰度和线上的区别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="发布方式">
 <meta property="og:url" content="http://example.com/2024/08/08/%E5%8F%91%E5%B8%83%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="滚动发布 将新版本逐批发布到服务器上  优点：资源利用率高 缺点：回滚复杂 灰度发布主要是对于流量进行控制  选择一部分流量作为测试 通过监控和日志观察运行情况 如果表现良好可以逐步增加流量，直到覆盖全部  缺点：数据一致性问题 蓝绿发布维持两个环境，把所有的流量切到新的的环境。但是旧环境的数据库连接等是不关闭的。 优点：快速回滚 缺点：需要额外的资源">
+<meta property="og:description" content="滚动发布 将新版本逐批发布到服务器上  优点：资源利用率高 缺点：回滚复杂 灰度发布主要是对于流量进行控制  选择一部分流量作为测试 通过监控和日志观察运行情况 如果表现良好可以逐步增加流量，直到覆盖全部  缺点：数据一致性问题 蓝绿发布维持两个环境，把所有的流量切到新的的环境。但是旧环境的数据库连接等是不关闭的。 优点：快速回滚 缺点：需要额外的资源 发布过程编译-&gt;部署 灰度和线上的区别">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-08-08T03:37:14.000Z">
-<meta property="article:modified_time" content="2024-08-08T10:44:57.106Z">
+<meta property="article:modified_time" content="2024-08-21T13:11:14.425Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
@@ -172,10 +172,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-08-08 11:37:14 / Modified: 18:44:57" itemprop="dateCreated datePublished" datetime="2024-08-08T11:37:14+08:00">2024-08-08</time>
+              <time title="Created: 2024-08-08 11:37:14" itemprop="dateCreated datePublished" datetime="2024-08-08T11:37:14+08:00">2024-08-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-21 21:11:14" itemprop="dateModified" datetime="2024-08-21T21:11:14+08:00">2024-08-21</time>
+              </span>
 
           
             <span id="/2024/08/08/%E5%8F%91%E5%B8%83%E6%96%B9%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="发布方式" title="Views">
@@ -224,6 +230,34 @@
 <h1 id="蓝绿发布"><a href="#蓝绿发布" class="headerlink" title="蓝绿发布"></a>蓝绿发布</h1><p>维持两个环境，把所有的流量切到新的的环境。但是旧环境的数据库连接等是不关闭的。</p>
 <p>优点：快速回滚</p>
 <p>缺点：需要额外的资源</p>
+<h1 id="发布过程"><a href="#发布过程" class="headerlink" title="发布过程"></a>发布过程</h1><p>编译-&gt;部署</p>
+<p>灰度和线上的区别：灰度不会合并master</p>
+<h1 id="kvm发布和docker发布"><a href="#kvm发布和docker发布" class="headerlink" title="kvm发布和docker发布"></a>kvm发布和docker发布</h1><p>kvm：服务器下线，上线，固定ip</p>
+<p>docker：服务上线，就服务回收，不固定IP</p>
+<ol>
+<li><p>docker发布的过程</p>
+</li>
+<li><p>kvm发布过程</p>
+</li>
+</ol>
+<h1 id="jar包发布"><a href="#jar包发布" class="headerlink" title="jar包发布"></a>jar包发布</h1><p>测试环境：snapshot。灰度pre。线上release</p>
+<h1 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h1><ol>
+<li>发布过程中线上业务或监控出现异常，与自己发布的时间点吻合，立即回滚</li>
+<li>发布过程中出现未知问题无法定位，立刻回滚</li>
+<li>发布完成，线上验证发现影响线上核心功能，立刻回滚</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://noc.corp.qunar.com/%E7%9C%8B%E8%B0%81%E5%8F%91%E5%B8%83%E4%BA%86">https://noc.corp.qunar.com/看谁发布了</a></p>
+<p>回滚部署之后会加回滚锁</p>
+<h1 id="如何回滚"><a href="#如何回滚" class="headerlink" title="如何回滚"></a>如何回滚</h1><ol>
+<li>提前准备回滚内容</li>
+<li>线上发布时发现有回滚，咨询回滚发布人</li>
+</ol>
+<h1 id="故障"><a href="#故障" class="headerlink" title="故障"></a>故障</h1><p>出现故障@noc</p>
+<h1 id="发布前确认"><a href="#发布前确认" class="headerlink" title="发布前确认"></a>发布前确认</h1><ol>
+<li>代码</li>
+<li>资源申请</li>
+<li>权限（日志查看，监控面板）</li>
+</ol>
 
     </div>
 
@@ -305,7 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E5%8F%91%E5%B8%83"><span class="nav-number">1.</span> <span class="nav-text">滚动发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">灰度发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%93%9D%E7%BB%BF%E5%8F%91%E5%B8%83"><span class="nav-number">3.</span> <span class="nav-text">蓝绿发布</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E5%8F%91%E5%B8%83"><span class="nav-number">1.</span> <span class="nav-text">滚动发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">灰度发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%93%9D%E7%BB%BF%E5%8F%91%E5%B8%83"><span class="nav-number">3.</span> <span class="nav-text">蓝绿发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">发布过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kvm%E5%8F%91%E5%B8%83%E5%92%8Cdocker%E5%8F%91%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">kvm发布和docker发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jar%E5%8C%85%E5%8F%91%E5%B8%83"><span class="nav-number">6.</span> <span class="nav-text">jar包发布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%BB%9A"><span class="nav-number">7.</span> <span class="nav-text">回滚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9B%9E%E6%BB%9A"><span class="nav-number">8.</span> <span class="nav-text">如何回滚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C"><span class="nav-number">9.</span> <span class="nav-text">故障</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E5%89%8D%E7%A1%AE%E8%AE%A4"><span class="nav-number">10.</span> <span class="nav-text">发布前确认</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -319,7 +353,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
