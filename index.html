@@ -145,6 +145,270 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/SPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/04/SPI/" class="post-title-link" itemprop="url">SPI</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-04 17:47:49 / Modified: 17:55:23" itemprop="dateCreated datePublished" datetime="2024-09-04T17:47:49+08:00">2024-09-04</time>
+            </span>
+
+          
+            <span id="/2024/09/04/SPI/" class="post-meta-item leancloud_visitors" data-flag-title="SPI" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/04/SPI/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/04/SPI/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SPI的工作流程"><a href="#SPI的工作流程" class="headerlink" title="SPI的工作流程"></a>SPI的工作流程</h1><ol>
+<li>定义服务接口</li>
+<li>实现服务接口</li>
+<li>在<code>META-INF/services</code>中创建文件（文件名是服务接口的全限定名，文件内容是服务实现类的全限定名）用于注册服务提供者</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">com.example.SimpleMessageService</span><br><span class="line">com.example.EncryptedMessageService</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>用<code>ServiceLoader</code>加载服务实现</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ServiceLoader&lt;MessageService&gt; loader = ServiceLoader.load(MessageService.class);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (MessageService service : loader) &#123;</span><br><span class="line">    System.out.println(service.getMessage());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/Java%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/04/Java%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Java接口</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-04 16:43:49 / Modified: 17:00:03" itemprop="dateCreated datePublished" datetime="2024-09-04T16:43:49+08:00">2024-09-04</time>
+            </span>
+
+          
+            <span id="/2024/09/04/Java%E6%8E%A5%E5%8F%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Java接口" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/04/Java%E6%8E%A5%E5%8F%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/04/Java%E6%8E%A5%E5%8F%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="java-1-7"><a href="#java-1-7" class="headerlink" title="java 1-7"></a>java 1-7</h1><p>抽象方法，常量字段</p>
+<h1 id="Java-8"><a href="#Java-8" class="headerlink" title="Java 8"></a>Java 8</h1><ul>
+<li>默认方法：实现类可以实现默认方法，也可以不实现默认方法</li>
+<li>静态方法：静态方法可以帮助把与接口相关的辅助功能封装在接口中，而不必创建额外的类</li>
+</ul>
+<h1 id="Java-9"><a href="#Java-9" class="headerlink" title="Java 9"></a>Java 9</h1><p>Java 8允许定义静态方法，但它们必须是public，没法隐藏实现</p>
+<ul>
+<li>私有方法：接口可以定义普通私有方法和私有静态方法，这些方法可以被接口的默认方法或静态方法调用，但不能被实现类调用或覆盖。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/Effective-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/04/Effective-Java/" class="post-title-link" itemprop="url">Effective Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-04 14:05:32 / Modified: 16:22:58" itemprop="dateCreated datePublished" datetime="2024-09-04T14:05:32+08:00">2024-09-04</time>
+            </span>
+
+          
+            <span id="/2024/09/04/Effective-Java/" class="post-meta-item leancloud_visitors" data-flag-title="Effective Java" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/04/Effective-Java/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/04/Effective-Java/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1：静态工厂方法"><a href="#1：静态工厂方法" class="headerlink" title="1：静态工厂方法"></a>1：静态工厂方法</h1><h1 id="34：枚举"><a href="#34：枚举" class="headerlink" title="34：枚举"></a>34：枚举</h1><p>如果我一个方法里面要用一个枚举类型的变量，应该直接传入枚举类型，而不是枚举里面的属性，比如Integer</p>
+<p>把一个元素从enum里面删除，没有应用该元素的程序会正常运行，引用了（没有重新编译）的会抛异常</p>
+<p>可以在enum定义一个抽象方法的属性，在枚举常量里面覆写这个方法</p>
+<p>枚举中的swtich语句不是在枚举中实现特定于常量的行为</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%80%BA%E5%8A%A1%E5%8D%B1%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +432,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-09-02 12:17:14 / Modified: 13:12:36" itemprop="dateCreated datePublished" datetime="2024-09-02T12:17:14+08:00">2024-09-02</time>
+              <time title="Created: 2024-09-02 12:17:14" itemprop="dateCreated datePublished" datetime="2024-09-02T12:17:14+08:00">2024-09-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-09-04 13:40:03" itemprop="dateModified" datetime="2024-09-04T13:40:03+08:00">2024-09-04</time>
+              </span>
 
           
             <span id="/2024/09/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%80%BA%E5%8A%A1%E5%8D%B1%E6%9C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="债务危机" title="Views">
@@ -242,6 +512,20 @@
 <li>交换媒介：对应为货币而劳动的人</li>
 <li>价值存储：对应用资本家</li>
 </ol>
+<h1 id="通缩性萧条"><a href="#通缩性萧条" class="headerlink" title="通缩性萧条"></a>通缩性萧条</h1><p>决策者会先降息应对经济萎缩，当利率接近0%时，降息无法刺激经济。</p>
+<p>债务重组和财政紧缩政策占据主导地位，收入下降速度快于债务重组速度，为了支付利息，借款人要承担更多债务。</p>
+<h2 id="出现条件"><a href="#出现条件" class="headerlink" title="出现条件"></a>出现条件</h2><p>大多数债务是国内融资的，以本币计价的国家。</p>
+<h2 id="泡沫阶段"><a href="#泡沫阶段" class="headerlink" title="泡沫阶段"></a>泡沫阶段</h2><p>泡沫阶段债务总额占GDP的比例平均为300%</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240904133838952.png" alt="image-20240904133838952"></p>
+<h1 id="通胀性萧条"><a href="#通胀性萧条" class="headerlink" title="通胀性萧条"></a>通胀性萧条</h1><p>当外资流动放缓时，信用创造就会变成信贷紧缩。在通 胀性去杠杆化进程中，资本外流导致贷款水平和流动性急剧下降， 同时汇率下跌拉高通胀率。</p>
+<h2 id="出现条件-1"><a href="#出现条件-1" class="headerlink" title="出现条件"></a>出现条件</h2><p>依赖外资流动的国家</p>
+<h1 id="降息对于萧条的影响"><a href="#降息对于萧条的影响" class="headerlink" title="降息对于萧条的影响"></a>降息对于萧条的影响</h1><ol>
+<li>利率降低，资金流入房产和股票</li>
+<li>未来现金流的折算：随着利率降低，贴现率降低，相同的未来现金流的现值更高，促使资金转向资产</li>
+<li>资产价格提高，会产生财富效应。鼓励持有这些资产的人消费和投资</li>
+</ol>
+<h1 id="贴现"><a href="#贴现" class="headerlink" title="贴现"></a>贴现</h1><p>$$<br>现值 &#x3D; \frac{未来现金流}{(1 + 折现率)^n}<br>$$</p>
+<h1 id="债务周期的阶段"><a href="#债务周期的阶段" class="headerlink" title="债务周期的阶段"></a>债务周期的阶段</h1><p>黄金阶段-泡沫阶段（自我强化）-顶部-萧条</p>
 
       
     </div>
@@ -794,294 +1078,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/12/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-12 16:52:58 / Modified: 16:59:22" itemprop="dateCreated datePublished" datetime="2024-08-12T16:52:58+08:00">2024-08-12</time>
-            </span>
-
-          
-            <span id="/2024/08/12/%E7%AE%97%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="算法" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/12/%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/12/%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="T-digest"><a href="#T-digest" class="headerlink" title="T-digest"></a>T-digest</h1><p>核心思想：通过质心进行数据的合并</p>
-<p>质心：数字，权重。</p>
-<p>两个数据：10 20，得出的质心 [15, 2]</p>
-<p>逐个累积质心的权重，直到累计权重接近目标权重(根据分位数和总共数据个数计算)</p>
-<p>map-reduce操作，可以理解为几组数据分别通过t-digest算法处理，得出来的几组结果可以合并到一起，并集之后就可以得到这几组数据的整体分位数</p>
-<p>感兴趣的同学可以看下这个<br>github项目：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest">https://github.com/tdunning/t-digest</a><br>算法的论文：<a target="_blank" rel="noopener" href="https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf">https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/09/LangChain4j/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/09/LangChain4j/" class="post-title-link" itemprop="url">LangChain4j</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-09 11:19:15 / Modified: 18:11:36" itemprop="dateCreated datePublished" datetime="2024-08-09T11:19:15+08:00">2024-08-09</time>
-            </span>
-
-          
-            <span id="/2024/08/09/LangChain4j/" class="post-meta-item leancloud_visitors" data-flag-title="LangChain4j" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/09/LangChain4j/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/09/LangChain4j/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h1><p>就是把之前的对话附上去，设定一个轮数的上限</p>
-<h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><h2 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-open-ai-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-pgvector<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.testcontainers<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>postgresql<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.19.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-embeddings-all-minilm-l6-v2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>dev.langchain4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>langchain4j-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.33.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="pgvector配置类"><a href="#pgvector配置类" class="headerlink" title="pgvector配置类"></a>pgvector配置类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> PostgreSQLContainer&lt;?&gt; postgreSQLContainer() &#123;</span><br><span class="line">    <span class="type">DockerImageName</span> <span class="variable">dockerImageName</span> <span class="operator">=</span> DockerImageName.parse(<span class="string">&quot;pgvector/pgvector:pg16&quot;</span>);</span><br><span class="line">    PostgreSQLContainer&lt;?&gt; postgreSQLContainer = <span class="keyword">new</span> <span class="title class_">PostgreSQLContainer</span>&lt;&gt;(dockerImageName);</span><br><span class="line">    postgreSQLContainer.start();</span><br><span class="line">    <span class="keyword">return</span> postgreSQLContainer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> EmbeddingStore&lt;TextSegment&gt; <span class="title function_">embeddingStore</span><span class="params">(PostgreSQLContainer&lt;?&gt; postgreSQLContainer)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> PgVectorEmbeddingStore.builder()</span><br><span class="line">            .host(postgreSQLContainer.getHost())</span><br><span class="line">            .port(postgreSQLContainer.getFirstMappedPort())</span><br><span class="line">            .database(postgreSQLContainer.getDatabaseName())</span><br><span class="line">            .user(postgreSQLContainer.getUsername())</span><br><span class="line">            .password(postgreSQLContainer.getPassword())</span><br><span class="line">            .table(<span class="string">&quot;test&quot;</span>)</span><br><span class="line">            .dimension(<span class="number">384</span>)</span><br><span class="line">            .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="文档转换向量"><a href="#文档转换向量" class="headerlink" title="文档转换向量"></a>文档转换向量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加文档内容到Embedding Store</span></span><br><span class="line"><span class="type">TextSegment</span> <span class="variable">segment1</span> <span class="operator">=</span> TextSegment.from(Document.txt1);</span><br><span class="line"><span class="type">Embedding</span> <span class="variable">embedding1</span> <span class="operator">=</span> embeddingModel.embed(segment1).content();</span><br><span class="line">embeddingStore.add(embedding1, segment1);</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">EmbeddingModel</span> <span class="variable">embeddingModel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AllMiniLmL6V2EmbeddingModel</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Embedding</span> <span class="variable">queryEmbedding</span> <span class="operator">=</span> embeddingModel.embed(message).content();</span><br><span class="line">List&lt;EmbeddingMatch&lt;TextSegment&gt;&gt; relevant = embeddingStore.findRelevant(queryEmbedding, <span class="number">1</span>);</span><br><span class="line">EmbeddingMatch&lt;TextSegment&gt; embeddingMatch = relevant.get(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">return</span> assistant.chat(embeddingMatch.embedded().text() + message);</span><br></pre></td></tr></table></figure>
-
-<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1><p>LangChain4j支持的向量数据库</p>
-<p><a target="_blank" rel="noopener" href="https://docs.langchain4j.dev/integrations/embedding-stores/">https://docs.langchain4j.dev/integrations/embedding-stores/</a></p>
-<h2 id="pgvector"><a href="#pgvector" class="headerlink" title="pgvector"></a>pgvector</h2><p>使用pgvector作为向量数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgvector-container -e POSTGRES_PASSWORD=mysecretpassword -d postgres:latest</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器</span></span><br><span class="line">docker exec -it pgvector-container bash</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y postgresql-server-dev-all gcc make git</span><br><span class="line">git clone https://github.com/pgvector/pgvector.git</span><br><span class="line">cd pgvector</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入docker的pg命令行</span></span><br><span class="line">docker exec -it pgvector-container psql -U postgres</span><br><span class="line">CREATE EXTENSION vector;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用于验证vector的安装</span></span><br><span class="line">SELECT * FROM pg_available_extensions WHERE name = &#x27;vector&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/08/checklist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/08/checklist/" class="post-title-link" itemprop="url">checklist</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-08 13:57:07 / Modified: 18:52:44" itemprop="dateCreated datePublished" datetime="2024-08-08T13:57:07+08:00">2024-08-08</time>
-            </span>
-
-          
-            <span id="/2024/08/08/checklist/" class="post-meta-item leancloud_visitors" data-flag-title="checklist" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/08/checklist/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/08/checklist/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>checklist：对于测试用例的梳理和提炼，用于指导测试的编写</p>
-<p>冒烟测试：确保主要功能没有重大缺陷</p>
-<h1 id="case运行环境"><a href="#case运行环境" class="headerlink" title="case运行环境"></a>case运行环境</h1><ul>
-<li>测试环境</li>
-<li>仿真环境</li>
-<li>灰度环境</li>
-<li>线上环境</li>
-</ul>
-<h1 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h1><ol>
-<li>多个功能，多个测试点</li>
-<li>横向覆盖：正常&#x2F;异常，合法&#x2F;不合法，边界内&#x2F;边界&#x2F;边界外</li>
-<li>纵向覆盖：前端 -&gt; 逻辑处理 -&gt;存储</li>
-<li>最少的case覆盖路径</li>
-</ol>
-<p>有效值&#x2F;无效值</p>
-<p>从用户的角度设计</p>
-<ul>
-<li>功能点</li>
-</ul>
-<p>系统设计角度</p>
-<ul>
-<li>系统结构</li>
-<li>对外部系统的影响</li>
-<li>多线程并发测试：jmeter</li>
-<li>数据相关</li>
-<li>日志</li>
-<li>监控</li>
-<li>第三方依赖</li>
-<li>安全</li>
-</ul>
-<p>codediff角度</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1151,7 +1147,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
