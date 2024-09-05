@@ -28,7 +28,7 @@
 <meta property="og:description" content="IOC职责边界，不关注不需要关注的事情 @Configuration怎么生效的：生成代理 看背景，看特性，看重要特性 容器问题：怎么统计一个容器的Bean个数，特殊的Bean怎么统计 怎么统计一个容器的Bean个数，特殊的Bean怎么统计：getBeanDefinitionCount：所有的，getBeansOfType特定类型的。 扩展 针对某一个Bean 容器级别  AOP 连接点（类，方法，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-17T02:40:26.000Z">
-<meta property="article:modified_time" content="2024-07-23T10:59:26.046Z">
+<meta property="article:modified_time" content="2024-09-05T07:57:54.227Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
@@ -180,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-23 18:59:26" itemprop="dateModified" datetime="2024-07-23T18:59:26+08:00">2024-07-23</time>
+                <time title="Modified: 2024-09-05 15:57:54" itemprop="dateModified" datetime="2024-09-05T15:57:54+08:00">2024-09-05</time>
               </span>
 
           
@@ -236,7 +236,13 @@
 <p>框架定义服务接口，具体实现由第三方提供。</p>
 <p>Spring SPI&#x2F;Java SPI</p>
 <h1 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h1><p>无锁，全链路异步</p>
-<p>- </p>
+<h1 id="Autowired和-Resource"><a href="#Autowired和-Resource" class="headerlink" title="@Autowired和@Resource"></a>@Autowired和@Resource</h1><h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><ol>
+<li>如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了name，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了type，则从上下文中找到类型匹配的唯一bean进行装配，找不到或是找到多个，都会抛出异常。</li>
+<li>如果既没有指定name，又没有指定type，则自动按照<code>byName</code>方式进行装配，通过字段的名称进行匹配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配。</li>
+</ol>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>默认byType，如果要byName要配合@Qualifier使用</p>
 
     </div>
 
@@ -318,7 +324,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IOC"><span class="nav-number">1.</span> <span class="nav-text">IOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">3.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%88%B6%E5%AD%90%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">父子容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">5.</span> <span class="nav-text">两种启动方法的差异</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPI"><span class="nav-number">6.</span> <span class="nav-text">SPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-number">7.</span> <span class="nav-text">Spring WebFlux</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IOC"><span class="nav-number">1.</span> <span class="nav-text">IOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">2.1.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">3.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%88%B6%E5%AD%90%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">父子容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">5.</span> <span class="nav-text">两种启动方法的差异</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPI"><span class="nav-number">6.</span> <span class="nav-text">SPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-number">7.</span> <span class="nav-text">Spring WebFlux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Autowired%E5%92%8C-Resource"><span class="nav-number">8.</span> <span class="nav-text">@Autowired和@Resource</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Resource"><span class="nav-number">8.1.</span> <span class="nav-text">@Resource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autowired"><span class="nav-number">8.2.</span> <span class="nav-text">@Autowired</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -468,7 +468,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-23 18:59:26" itemprop="dateModified" datetime="2024-07-23T18:59:26+08:00">2024-07-23</time>
+                <time title="Modified: 2024-09-05 15:57:54" itemprop="dateModified" datetime="2024-09-05T15:57:54+08:00">2024-09-05</time>
               </span>
 
           
@@ -524,7 +524,13 @@
 <p>框架定义服务接口，具体实现由第三方提供。</p>
 <p>Spring SPI&#x2F;Java SPI</p>
 <h1 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h1><p>无锁，全链路异步</p>
-<p>- </p>
+<h1 id="Autowired和-Resource"><a href="#Autowired和-Resource" class="headerlink" title="@Autowired和@Resource"></a>@Autowired和@Resource</h1><h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><ol>
+<li>如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了name，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了type，则从上下文中找到类型匹配的唯一bean进行装配，找不到或是找到多个，都会抛出异常。</li>
+<li>如果既没有指定name，又没有指定type，则自动按照<code>byName</code>方式进行装配，通过字段的名称进行匹配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配。</li>
+</ol>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>默认byType，如果要byName要配合@Qualifier使用</p>
 
       
     </div>

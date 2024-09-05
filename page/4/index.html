@@ -608,7 +608,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-12 18:53:04" itemprop="dateModified" datetime="2024-08-12T18:53:04+08:00">2024-08-12</time>
+                <time title="Modified: 2024-09-05 15:02:41" itemprop="dateModified" datetime="2024-09-05T15:02:41+08:00">2024-09-05</time>
               </span>
 
           
@@ -752,7 +752,7 @@
 <li>order by后面的字段尽量也要放在索引之中</li>
 </ol>
 <h1 id="字符集规范"><a href="#字符集规范" class="headerlink" title="字符集规范"></a>字符集规范</h1><ol>
-<li>同一个实例的库表字符集必须一致，JON字段字符集必须一致</li>
+<li>同一个实例的库表字符集必须一致，JOIN字段字符集必须一致</li>
 <li>禁止在字段级别设置字符集</li>
 <li>字符集更改，<code>alter table t1 convert to charset utf</code></li>
 </ol>
@@ -829,6 +829,8 @@
 <li>数据表的更新时间字段是用CURRENT_TIMESTAMP 还是以服务器的时间为准？</li>
 <li>连表不用数据库，在java程序里面操作。</li>
 <li>一个表有唯一索引，怎么做逻辑删除：把唯一索引字段和逻辑删除字段做联合索引，逻辑删除就把逻辑删除字段设置为null</li>
+<li>索引长度限制767字节</li>
+<li>大小写敏感：默认是大小写不敏感的，需要设置排序规则，比如<code>COLLATE</code> <code>= utf8mb4_bin</code></li>
 </ul>
 
       
