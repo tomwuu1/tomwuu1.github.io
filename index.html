@@ -145,6 +145,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">正则表达式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-06 16:48:33 / Modified: 18:16:20" itemprop="dateCreated datePublished" datetime="2024-09-06T16:48:33+08:00">2024-09-06</time>
+            </span>
+
+          
+            <span id="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="正则表达式" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h1><p>贪婪模式就是当前的匹配模式尽可能多匹配，如果失败就进行文本位置的回溯，</p>
+<p>贪婪量词</p>
+<ul>
+<li>*：零次或多次</li>
+<li>+：一次或多次</li>
+<li>?：零次或一次</li>
+<li>{n,m}：至少n次，最多m次</li>
+</ul>
+<p>文本位置的回溯更加耗时是因为，要重新计算回溯的位置，文本量越大，计算时间越长。</p>
+<h2 id="为什么不记录状态"><a href="#为什么不记录状态" class="headerlink" title="为什么不记录状态"></a>为什么不记录状态</h2><p>Java的正则引擎是基于回溯的。如果记录状态，对于复杂的正则表达式，状态空间庞大</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>需要匹配尽可能多的字符，提取整个外层内容</p>
+<h1 id="懒惰模式"><a href="#懒惰模式" class="headerlink" title="懒惰模式"></a>懒惰模式</h1><p>在贪婪量词后面加一个?</p>
+<p>懒惰模式是尽可能少的匹配，如果失败就回退匹配模式位置的回溯。</p>
+<h2 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h2><p>需要匹配最少字符，提取嵌套结构的各个部分</p>
+<h1 id="独占模式"><a href="#独占模式" class="headerlink" title="独占模式"></a>独占模式</h1><p>在贪婪量词后面加一个+</p>
+<p>独占模式是尽可能多的匹配，和贪婪模式的区别是不回溯，如果匹配失败，直接认为失败。</p>
+<h2 id="适用场景-2"><a href="#适用场景-2" class="headerlink" title="适用场景"></a>适用场景</h2><p>当处理大量的结构化文本（如日志文件），并且不希望回溯影响性能时，独占模式非常适合。</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">testStr</span> <span class="operator">=</span> <span class="string">&quot;effg&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_1</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;g&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_2</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;?g&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_3</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;+g&quot;</span>;</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; regulars = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">regulars.add(regular_1);</span><br><span class="line">regulars.add(regular_2);</span><br><span class="line">regulars.add(regular_3);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String regular : regulars) &#123;</span><br><span class="line">    <span class="type">long</span> <span class="variable">startTime</span> <span class="operator">=</span> System.nanoTime();</span><br><span class="line">    testStr.split(regular);</span><br><span class="line">    <span class="type">long</span> <span class="variable">endTime</span> <span class="operator">=</span> System.nanoTime();</span><br><span class="line">    System.out.println(<span class="string">&quot;Pattern.compile() took &quot;</span> + (endTime - startTime) + <span class="string">&quot; nanoseconds&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pattern.compile() took 717800 nanoseconds</span><br><span class="line">Pattern.compile() took 38400 nanoseconds</span><br><span class="line">Pattern.compile() took 20600 nanoseconds</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/SPI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,7 +458,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-09-05 17:34:00" itemprop="dateModified" datetime="2024-09-05T17:34:00+08:00">2024-09-05</time>
+                <time title="Modified: 2024-09-06 11:41:33" itemprop="dateModified" datetime="2024-09-06T11:41:33+08:00">2024-09-06</time>
               </span>
 
           
@@ -402,13 +503,27 @@
 <p>Builder的构造函数里面需要进行参数有效性校验</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(PersonBuilder builder)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = builder.name;</span><br><span class="line">        <span class="built_in">this</span>.age = builder.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">PersonBuilder</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> PersonBuilder <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.name = name;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> PersonBuilder <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.age = age;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Person <span class="title function_">build</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="built_in">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h1 id="34：枚举"><a href="#34：枚举" class="headerlink" title="34：枚举"></a>34：枚举</h1><p>如果我一个方法里面要用一个枚举类型的变量，应该直接传入枚举类型，而不是枚举里面的属性，比如Integer</p>
+<h1 id="3：单例"><a href="#3：单例" class="headerlink" title="3：单例"></a>3：单例</h1><p>传统单例模式存在的问题：</p>
+<ul>
+<li>反序列化破坏单例性</li>
+<li>反射攻击：通过反射调用构造函数，可以再次创建实例，破坏单例</li>
+</ul>
+<h2 id="推荐的单例实现方式"><a href="#推荐的单例实现方式" class="headerlink" title="推荐的单例实现方式"></a>推荐的单例实现方式</h2><p>声明一个包含单个元素的枚举类型</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>枚举天然支持序列化</li>
+<li>反射无法破坏枚举的单例</li>
+</ol>
+<h1 id="4：私有构造器让类不可实例化"><a href="#4：私有构造器让类不可实例化" class="headerlink" title="4：私有构造器让类不可实例化"></a>4：私有构造器让类不可实例化</h1><p>主要是一些工具类，让构造器private。避免被实例化。</p>
+<h1 id="6：避免创建不必要的对象"><a href="#6：避免创建不必要的对象" class="headerlink" title="6：避免创建不必要的对象"></a>6：避免创建不必要的对象</h1><ol>
+<li>String</li>
+<li>Pattern：避免频繁编译正则表达式，缓存Pattern实例</li>
+<li>包装类：优先使用基本类型而不是包装类，避免无意识的自动装箱</li>
+</ol>
+<h1 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h1><h1 id="34：枚举"><a href="#34：枚举" class="headerlink" title="34：枚举"></a>34：枚举</h1><p>如果我一个方法里面要用一个枚举类型的变量，应该直接传入枚举类型，而不是枚举里面的属性，比如Integer</p>
 <p>把一个元素从enum里面删除，没有应用该元素的程序会正常运行，引用了（没有重新编译）的会抛异常</p>
 <p>可以在enum定义一个抽象方法的属性，在枚举常量里面覆写这个方法</p>
 <p>枚举中的swtich语句不是在枚举中实现特定于常量的行为</p>
-
+<h1 id="Supplier"><a href="#Supplier" class="headerlink" title="Supplier"></a>Supplier<T></h1>
       
     </div>
 
@@ -458,7 +573,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-09-05 13:56:03" itemprop="dateModified" datetime="2024-09-05T13:56:03+08:00">2024-09-05</time>
+                <time title="Modified: 2024-09-06 13:14:18" itemprop="dateModified" datetime="2024-09-06T13:14:18+08:00">2024-09-06</time>
               </span>
 
           
@@ -569,6 +684,15 @@
 </ol>
 <h1 id="贴现"><a href="#贴现" class="headerlink" title="贴现"></a>贴现</h1><p>$$<br>现值 &#x3D; \frac{未来现金流}{(1 + 折现率)^n}<br>$$</p>
 <h1 id="债务周期的阶段"><a href="#债务周期的阶段" class="headerlink" title="债务周期的阶段"></a>债务周期的阶段</h1><p>黄金阶段-泡沫阶段（自我强化）-顶部-萧条</p>
+<h1 id="萧条-现金流问题和偿付能力问题"><a href="#萧条-现金流问题和偿付能力问题" class="headerlink" title="萧条-现金流问题和偿付能力问题"></a>萧条-现金流问题和偿付能力问题</h1><ul>
+<li>偿付能力问题：企业&#x2F;金融机构资不抵债</li>
+</ul>
+<p>处理手段：提供足够的股权资本，更改会计准则和监管规则</p>
+<ul>
+<li>现金流问题：</li>
+</ul>
+<h1 id="头寸"><a href="#头寸" class="headerlink" title="头寸"></a>头寸</h1><p>投资者在某个资产，证券或货币上的持仓情况</p>
+<h1 id="去杠杆化"><a href="#去杠杆化" class="headerlink" title="去杠杆化"></a>去杠杆化</h1><p>人们发现自己的财富，大部分是他人的付款承诺</p>
 
       
     </div>
@@ -1039,88 +1163,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E6%B2%9F%E9%80%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/12/%E6%B2%9F%E9%80%9A/" class="post-title-link" itemprop="url">沟通</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-08-12 18:51:28 / Modified: 18:51:49" itemprop="dateCreated datePublished" datetime="2024-08-12T18:51:28+08:00">2024-08-12</time>
-            </span>
-
-          
-            <span id="/2024/08/12/%E6%B2%9F%E9%80%9A/" class="post-meta-item leancloud_visitors" data-flag-title="沟通" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/08/12/%E6%B2%9F%E9%80%9A/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/12/%E6%B2%9F%E9%80%9A/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>在和组员沟通的时候发现，在表达自己的想法之前，要先表达对于他人观点的理解。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1190,7 +1232,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

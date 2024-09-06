@@ -145,6 +145,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tomwuu1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/31/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-07-31 18:39:02 / Modified: 18:55:29" itemprop="dateCreated datePublished" datetime="2024-07-31T18:39:02+08:00">2024-07-31</time>
+            </span>
+
+          
+            <span id="/2024/07/31/Redis/" class="post-meta-item leancloud_visitors" data-flag-title="Redis" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/07/31/Redis/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/31/Redis/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="集群架构"><a href="#集群架构" class="headerlink" title="集群架构"></a>集群架构</h1><h2 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731183942723.png"></p>
+<p>优点：动态扩容</p>
+<p>缺点：存储Slot-Key关系占用较多内存，Key迁移是阻塞。</p>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184234674.png" alt="image-20240731184234674"></p>
+<p>优点：解耦Client访问逻辑和Redis分片逻辑</p>
+<p>缺点：Proxy中转存在性能损耗</p>
+<p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-20240731184536459.png" alt="image-20240731184536459"></p>
+<p>优点：直接访问Redis，性能高。支持动态扩容。</p>
+<p>zookeeper：SDK服务注册中心，Redis实例变更通知中心</p>
+<p>Sentinel集群：故障之后负责更新Zookeeper和配置中心</p>
+<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
+<li>避免bigkey。string &lt; 10KB。hash,list,set,zset元素个数&lt;5000.</li>
+<li>避免直接删除bigkey。</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/MyBatis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1309,86 +1403,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/dubbo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tomwuu1">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/dubbo/" class="post-title-link" itemprop="url">dubbo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-07-22 17:18:43 / Modified: 17:27:57" itemprop="dateCreated datePublished" datetime="2024-07-22T17:18:43+08:00">2024-07-22</time>
-            </span>
-
-          
-            <span id="/2024/07/22/dubbo/" class="post-meta-item leancloud_visitors" data-flag-title="dubbo" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2024/07/22/dubbo/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/07/22/dubbo/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="https://kjgadfk-1311071500.cos.ap-nanjing.myqcloud.com/image-463.png" alt="img"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1458,7 +1472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

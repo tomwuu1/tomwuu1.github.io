@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="需求idea -&gt; 需求RDQA -&gt; 需求估时 -&gt; 需求FR OTA：Online Travel Agency UI（User Interface，用户界面）和UE（User Experience，用户体验） 需求分析：分析，记录，确认，管理 RDQA 原型图 监控、埋点和验证方案 新旧逻辑处理 性能和安全考虑  需求估时 联调和自测 测试和验证方案  概要设计模版">
+  <meta name="description" content="贪婪模式贪婪模式就是当前的匹配模式尽可能多匹配，如果失败就进行文本位置的回溯， 贪婪量词  *：零次或多次 +：一次或多次 ?：零次或一次 {n,m}：至少n次，最多m次  文本位置的回溯更加耗时是因为，要重新计算回溯的位置，文本量越大，计算时间越长。 为什么不记录状态Java的正则引擎是基于回溯的。如果记录状态，对于复杂的正则表达式，状态空间庞大 适用场景需要匹配尽可能多的字符，提取整个外层内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="需求分析-系统设计">
-<meta property="og:url" content="http://example.com/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://example.com/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="需求idea -&gt; 需求RDQA -&gt; 需求估时 -&gt; 需求FR OTA：Online Travel Agency UI（User Interface，用户界面）和UE（User Experience，用户体验） 需求分析：分析，记录，确认，管理 RDQA 原型图 监控、埋点和验证方案 新旧逻辑处理 性能和安全考虑  需求估时 联调和自测 测试和验证方案  概要设计模版">
+<meta property="og:description" content="贪婪模式贪婪模式就是当前的匹配模式尽可能多匹配，如果失败就进行文本位置的回溯， 贪婪量词  *：零次或多次 +：一次或多次 ?：零次或一次 {n,m}：至少n次，最多m次  文本位置的回溯更加耗时是因为，要重新计算回溯的位置，文本量越大，计算时间越长。 为什么不记录状态Java的正则引擎是基于回溯的。如果记录状态，对于复杂的正则表达式，状态空间庞大 适用场景需要匹配尽可能多的字符，提取整个外层内容">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-06T02:17:20.000Z">
-<meta property="article:modified_time" content="2024-08-06T13:37:21.939Z">
+<meta property="article:published_time" content="2024-09-06T08:48:33.000Z">
+<meta property="article:modified_time" content="2024-09-06T10:16:20.333Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+<link rel="canonical" href="http://example.com/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>需求分析-系统设计 | Hexo</title>
+  <title>正则表达式 | Hexo</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          需求分析-系统设计
+          正则表达式
         </h1>
 
         <div class="post-meta">
@@ -174,11 +174,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-08-06 10:17:20 / Modified: 21:37:21" itemprop="dateCreated datePublished" datetime="2024-08-06T10:17:20+08:00">2024-08-06</time>
+              <time title="Created: 2024-09-06 16:48:33 / Modified: 18:16:20" itemprop="dateCreated datePublished" datetime="2024-09-06T16:48:33+08:00">2024-09-06</time>
             </span>
 
           
-            <span id="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="需求分析-系统设计" title="Views">
+            <span id="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="正则表达式" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -193,8 +193,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/06/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -209,21 +209,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>需求idea -&gt; 需求RDQA -&gt; 需求估时 -&gt; 需求FR</p>
-<p>OTA：Online Travel Agency</p>
-<p>UI（User Interface，用户界面）和UE（User Experience，用户体验）</p>
-<p>需求分析：分析，记录，确认，管理</p>
-<h1 id="RDQA"><a href="#RDQA" class="headerlink" title="RDQA"></a>RDQA</h1><ol>
-<li>原型图</li>
-<li>监控、埋点和验证方案</li>
-<li>新旧逻辑处理</li>
-<li>性能和安全考虑</li>
-</ol>
-<h1 id="需求估时"><a href="#需求估时" class="headerlink" title="需求估时"></a>需求估时</h1><ul>
-<li>联调和自测</li>
-<li>测试和验证方案</li>
+        <h1 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h1><p>贪婪模式就是当前的匹配模式尽可能多匹配，如果失败就进行文本位置的回溯，</p>
+<p>贪婪量词</p>
+<ul>
+<li>*：零次或多次</li>
+<li>+：一次或多次</li>
+<li>?：零次或一次</li>
+<li>{n,m}：至少n次，最多m次</li>
 </ul>
-<h1 id="概要设计模版"><a href="#概要设计模版" class="headerlink" title="概要设计模版"></a>概要设计模版</h1>
+<p>文本位置的回溯更加耗时是因为，要重新计算回溯的位置，文本量越大，计算时间越长。</p>
+<h2 id="为什么不记录状态"><a href="#为什么不记录状态" class="headerlink" title="为什么不记录状态"></a>为什么不记录状态</h2><p>Java的正则引擎是基于回溯的。如果记录状态，对于复杂的正则表达式，状态空间庞大</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>需要匹配尽可能多的字符，提取整个外层内容</p>
+<h1 id="懒惰模式"><a href="#懒惰模式" class="headerlink" title="懒惰模式"></a>懒惰模式</h1><p>在贪婪量词后面加一个?</p>
+<p>懒惰模式是尽可能少的匹配，如果失败就回退匹配模式位置的回溯。</p>
+<h2 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h2><p>需要匹配最少字符，提取嵌套结构的各个部分</p>
+<h1 id="独占模式"><a href="#独占模式" class="headerlink" title="独占模式"></a>独占模式</h1><p>在贪婪量词后面加一个+</p>
+<p>独占模式是尽可能多的匹配，和贪婪模式的区别是不回溯，如果匹配失败，直接认为失败。</p>
+<h2 id="适用场景-2"><a href="#适用场景-2" class="headerlink" title="适用场景"></a>适用场景</h2><p>当处理大量的结构化文本（如日志文件），并且不希望回溯影响性能时，独占模式非常适合。</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">testStr</span> <span class="operator">=</span> <span class="string">&quot;effg&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_1</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;g&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_2</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;?g&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">regular_3</span> <span class="operator">=</span> <span class="string">&quot;ef&#123;1,3&#125;+g&quot;</span>;</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; regulars = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">regulars.add(regular_1);</span><br><span class="line">regulars.add(regular_2);</span><br><span class="line">regulars.add(regular_3);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String regular : regulars) &#123;</span><br><span class="line">    <span class="type">long</span> <span class="variable">startTime</span> <span class="operator">=</span> System.nanoTime();</span><br><span class="line">    testStr.split(regular);</span><br><span class="line">    <span class="type">long</span> <span class="variable">endTime</span> <span class="operator">=</span> System.nanoTime();</span><br><span class="line">    System.out.println(<span class="string">&quot;Pattern.compile() took &quot;</span> + (endTime - startTime) + <span class="string">&quot; nanoseconds&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pattern.compile() took 717800 nanoseconds</span><br><span class="line">Pattern.compile() took 38400 nanoseconds</span><br><span class="line">Pattern.compile() took 20600 nanoseconds</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -238,13 +246,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/08/06/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/" rel="prev" title="问题与解决">
-      <i class="fa fa-chevron-left"></i> 问题与解决
+    <a href="/2024/09/04/SPI/" rel="prev" title="SPI">
+      <i class="fa fa-chevron-left"></i> SPI
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/08/06/AI/" rel="next" title="AI">
-      AI <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -304,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RDQA"><span class="nav-number">1.</span> <span class="nav-text">RDQA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E4%BC%B0%E6%97%B6"><span class="nav-number">2.</span> <span class="nav-text">需求估时</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E7%89%88"><span class="nav-number">3.</span> <span class="nav-text">概要设计模版</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">贪婪模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%AE%B0%E5%BD%95%E7%8A%B6%E6%80%81"><span class="nav-number">1.1.</span> <span class="nav-text">为什么不记录状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.2.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%87%92%E6%83%B0%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">懒惰模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">2.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8B%AC%E5%8D%A0%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">独占模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-2"><span class="nav-number">3.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">示例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
