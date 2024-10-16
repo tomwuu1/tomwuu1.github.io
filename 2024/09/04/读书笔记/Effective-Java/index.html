@@ -23,16 +23,16 @@
   <meta name="description" content="1：静态工厂方法（没太懂）2：Builder这个设计模式主要是为了  在设置复杂参数的时候，可以灵活地设置参数 链式调用有比较好的可读性。 提供可扩展性  就是在一个类里面弄一个Builder，构造函数都返回Builder本身。然后再弄一个方法，返回类本身。 Builder的构造函数里面需要进行参数有效性校验 12345678910111213141516171819202122232425262">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective Java">
-<meta property="og:url" content="http://example.com/2024/09/04/Effective-Java/index.html">
+<meta property="og:url" content="http://example.com/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1：静态工厂方法（没太懂）2：Builder这个设计模式主要是为了  在设置复杂参数的时候，可以灵活地设置参数 链式调用有比较好的可读性。 提供可扩展性  就是在一个类里面弄一个Builder，构造函数都返回Builder本身。然后再弄一个方法，返回类本身。 Builder的构造函数里面需要进行参数有效性校验 12345678910111213141516171819202122232425262">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-04T06:05:32.000Z">
-<meta property="article:modified_time" content="2024-09-06T03:41:33.703Z">
+<meta property="article:modified_time" content="2024-09-11T02:07:33.261Z">
 <meta property="article:author" content="tomwuu1">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/09/04/Effective-Java/">
+<link rel="canonical" href="http://example.com/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/">
 
 
 <script id="page-configurations">
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/Effective-Java/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,11 +180,11 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-09-06 11:41:33" itemprop="dateModified" datetime="2024-09-06T11:41:33+08:00">2024-09-06</time>
+                <time title="Modified: 2024-09-11 10:07:33" itemprop="dateModified" datetime="2024-09-11T10:07:33+08:00">2024-09-11</time>
               </span>
 
           
-            <span id="/2024/09/04/Effective-Java/" class="post-meta-item leancloud_visitors" data-flag-title="Effective Java" title="Views">
+            <span id="/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/" class="post-meta-item leancloud_visitors" data-flag-title="Effective Java" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -199,8 +199,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2024/09/04/Effective-Java/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/04/Effective-Java/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Effective-Java/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -240,6 +240,13 @@
 <li>String</li>
 <li>Pattern：避免频繁编译正则表达式，缓存Pattern实例</li>
 <li>包装类：优先使用基本类型而不是包装类，避免无意识的自动装箱</li>
+</ol>
+<h1 id="9：用try-with-resources"><a href="#9：用try-with-resources" class="headerlink" title="9：用try-with-resources"></a>9：用<code>try-with-resources</code></h1><p>需要类实现<code>AutoCloseable</code>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;example.txt&quot;</span>))) ;</span><br><span class="line"><span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;example.txt&quot;</span>)))</span><br><span class="line">&#123;</span><br><span class="line">    String line;</span><br><span class="line">    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">        System.out.println(line);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>简化资源管理，不需要手动关闭资源</li>
+<li>使用<code>try-catch</code>会吞异常</li>
 </ol>
 <h1 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h1><h1 id="34：枚举"><a href="#34：枚举" class="headerlink" title="34：枚举"></a>34：枚举</h1><p>如果我一个方法里面要用一个枚举类型的变量，应该直接传入枚举类型，而不是枚举里面的属性，比如Integer</p>
 <p>把一个元素从enum里面删除，没有应用该元素的程序会正常运行，引用了（没有重新编译）的会抛异常</p>
@@ -326,7 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9A%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%88%E6%B2%A1%E5%A4%AA%E6%87%82%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1：静态工厂方法（没太懂）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9ABuilder"><span class="nav-number">2.</span> <span class="nav-text">2：Builder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%EF%BC%9A%E5%8D%95%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">3：单例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%8D%95%E4%BE%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">推荐的单例实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">3.1.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%EF%BC%9A%E7%A7%81%E6%9C%89%E6%9E%84%E9%80%A0%E5%99%A8%E8%AE%A9%E7%B1%BB%E4%B8%8D%E5%8F%AF%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">4：私有构造器让类不可实例化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%EF%BC%9A%E9%81%BF%E5%85%8D%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">6：避免创建不必要的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%82%E9%85%8D%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">适配器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#34%EF%BC%9A%E6%9E%9A%E4%B8%BE"><span class="nav-number">7.</span> <span class="nav-text">34：枚举</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supplier"><span class="nav-number">8.</span> <span class="nav-text">Supplier</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9A%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%88%E6%B2%A1%E5%A4%AA%E6%87%82%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1：静态工厂方法（没太懂）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9ABuilder"><span class="nav-number">2.</span> <span class="nav-text">2：Builder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%EF%BC%9A%E5%8D%95%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">3：单例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%8D%95%E4%BE%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">推荐的单例实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">3.1.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%EF%BC%9A%E7%A7%81%E6%9C%89%E6%9E%84%E9%80%A0%E5%99%A8%E8%AE%A9%E7%B1%BB%E4%B8%8D%E5%8F%AF%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">4：私有构造器让类不可实例化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%EF%BC%9A%E9%81%BF%E5%85%8D%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">6：避免创建不必要的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9%EF%BC%9A%E7%94%A8try-with-resources"><span class="nav-number">6.</span> <span class="nav-text">9：用try-with-resources</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%82%E9%85%8D%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">适配器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#34%EF%BC%9A%E6%9E%9A%E4%B8%BE"><span class="nav-number">8.</span> <span class="nav-text">34：枚举</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supplier"><span class="nav-number">9.</span> <span class="nav-text">Supplier</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -340,7 +347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
